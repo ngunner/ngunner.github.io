@@ -1,0 +1,45 @@
+permalink: /:year/:month/:day/:title 
+
+pygments: true
+
+title : Nicholas Gunner
+tagline: Multimedia Storyteller
+author : 
+  name : Nicholas Gunner
+  email : gunnernr@gmail.com
+  github : ngunner
+  twitter : nicholas_gunner
+  web : http://www.nicholasgunner.com
+
+production_url : http://ngunner.github.io/
+
+version : 0.3.0
+
+baseurl : http://ngunner.github.io/
+
+ 
+comments :
+  provider : disqus
+  disqus :
+    short_name : 
+   
+        
+analytics :
+  provider : google 
+  google : 
+    tracking_id : 'UA-'
+
+
+authors:
+  ngunner:
+    name: Nicholas Gunner
+    display_name: Nicholas Gunner
+    bio: New Media Manager at SUNY Fredonia. Multimedia Storyteller.
+    gravatar: http://www.gravatar.com/avatar/a85d870dce3cc177b6b0016a1ef4c200.png
+    email: gunnernr@gmail.com
+    web: http://www.nicholasgunner.com
+    twitter: nicholas_gunner
+    github: ngunner
+   
+  
+timezone : America/New_York
