@@ -11,7 +11,7 @@ author :
   twitter : nicholas_gunner
   web : http://www.nicholasgunner.com
 
-production_url : http://ngunner.github.io/
+production_url : http://www.nicholasgunner.com
 
 version : 0.3.0
 
@@ -25,9 +25,8 @@ comments :
    
         
 analytics :
-  provider : google 
   google : 
-    tracking_id : 'UA-'
+    tracking_id : 'UA-48524948-1'
 
 
 authors:
