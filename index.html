@@ -3,3 +3,7 @@ layout: page
 title: Home
 ---
 <h1>Nicholas Gunner</h1>
+
+{% for post in site.posts %}
+<p>{{ post.title }}</p>
+{% endfor %}
