@@ -46,13 +46,7 @@ timezone : America/New_York
 
 prose:
   rooturl: '_posts'
-  siteurl: 'http://ngunner.github.io/'
-  media: 'media'
-  ignore:
-    - index.md
-    - _config.yml
-    - /_layouts
-    - /_includes
+  siteurl: 'http://www.nicholasgunner.com'
   metadata:
     _posts:
       - name: "layout"
