@@ -75,7 +75,7 @@ prose:
       - name: "categories"
         field:
           element: "multiselect"
-          label: "Select categories"
+          label: "Categories"
           options:
             - name: "Video"
               value: "video"
@@ -83,8 +83,11 @@ prose:
               value: "content"
       - name: "author"
         field:
-          element: "text"
-          label: "Author shortname"
+          element: "multiselect"
+          label: "Author"
+          options:
+            - name: "Nicholas Gunner"
+              value: "ngunner"
       - name: "image"
         field:
           element: "text"
