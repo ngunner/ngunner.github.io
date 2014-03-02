@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: ""
+title: Another draft
 ---
 
 ## A New Post
