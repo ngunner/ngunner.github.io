@@ -1,5 +1,16 @@
 ---
-published: false
+layout: post
+published: true
+title: Test Blog post 2
+description: This is a test blog post. The first of several.
+categories: 
+  - cat1
+  - cat2
+tags: 
+  - tag1
+  - tag2
+author: ngunner
+image: "http://farm6.staticflickr.com/5541/11818725035_edcf576f32_o.jpg"
 ---
 
 ## A New Post
