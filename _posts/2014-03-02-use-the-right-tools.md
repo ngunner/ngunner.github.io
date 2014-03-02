@@ -14,3 +14,11 @@ I'm all about producing and publishing compelling video content but I'm not sure
 - "Is the cost of putting this video together worth its potential benefits?"
 - "Could this message be more effective using a different medium?"
 - "Will anyone actually want to watch this video?"
+
+## The cost of video production
+## Choosing a medium
+## Hitting a broad enough audience
+
+
+
+
