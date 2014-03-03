@@ -1,6 +1,6 @@
 ---
 layout: post
-published: true
+published: false
 title: "When is video the solution?"
 description: When to use what mediums
 categories: ""
