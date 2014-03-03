@@ -77,7 +77,7 @@ prose:
               value: "content"
       - name: "author"
         field:
-          element: "multiselect"
+          element: "text"
           label: "Author"
           options:
             - name: "Nicholas Gunner"

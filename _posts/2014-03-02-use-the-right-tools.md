@@ -4,8 +4,7 @@ published: true
 title: "When is video the solution?"
 description: When to use what mediums
 categories: ""
-author: 
-  - ngunner
+author: ngunner
 image: "http://farm9.staticflickr.com/8352/8332280788_5f6ce7df6a_h.jpg"
 ---
 
