@@ -8,7 +8,7 @@ author:
   - ngunner
 ---
 
-I've been hearing this a lot lately: "Video is important" and "we should do a video for that" and "we need to see more videos on our homepage."
+I've been hearing this a lot lately: "Video is important", "we should do a video for that" and "we need to see more videos on our homepage."
 
 I'm all about producing and publishing compelling video content but I'm not sure the people urgently requesting them are asking questions like these: 
 - "Is the cost of putting this video together worth its potential benefits?"
@@ -18,7 +18,3 @@ I'm all about producing and publishing compelling video content but I'm not sure
 ## The cost of video production
 ## Choosing a medium
 ## Hitting a broad enough audience
-
-
-
-
