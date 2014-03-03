@@ -68,8 +68,18 @@ top: 5px;
 }
 
 .mobimg {
+display: none;
+}
+
+@media (max-width: 600px) {
+.fitvid {
+display:none;
+}
+
+.mobimg {
 height: 500px;
 display: inline;
+position: relative;
 }
 }
 
