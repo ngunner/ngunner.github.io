@@ -3,5 +3,37 @@ layout: default
 ---
 <div style="height:50px;"></div>
 <div class="container">
-{{ content }}
-</div><!-- container -->
+<div class="page-header">
+  <h2>{{ page.title }} {% if page.description %}<small>{{page.description}}</small>{% endif %}</h2>
+</div>
+{% assign author = site.authors[page.author] %}
+<div class="row post-full">
+  <div class="col-md12">
+    <div class="date">
+      <h3><small><span>{{ page.date | date: "%B %-d" }}, {{ page.date | date: "%Y" }}</span>{% if author %}   <img style="width:35px; height:35px;" src="{{author.gravatar}}" class="img-circle">   <a href="http://www.twitter.com/{{author.twitter}}">{{ author.display_name }}{% endif %}</a></small></h3>
+    </div>
+    <div class="content">
+    {% if page.post_image %}<div class="thumbnail"><img class="img-rounded img-responsive" src="{{page.post_image}}"></div>{% endif %}
+      {{ content }}
+    </div>
+
+
+
+    <hr>
+      <ul class="pagination">
+      {% if page.previous %}
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
+      {% else %}
+        <li class="prev disabled"><a>&larr; Previous</a></li>
+      {% endif %}
+        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
+      {% if page.next %}
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
+      {% else %}
+        <li class="next disabled"><a>Next &rarr;</a>
+      {% endif %}
+      </ul>
+    <hr>
+  </div>
+</div>
+</div>
