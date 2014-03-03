@@ -6,6 +6,7 @@ description: When to use what mediums
 categories: ""
 author: 
   - ngunner
+image: "http://farm9.staticflickr.com/8352/8332280788_5f6ce7df6a_h.jpg"
 ---
 
 I've been hearing this a lot lately: "Video is important", "we should do a video for that" and "we need to see more videos on our homepage."
