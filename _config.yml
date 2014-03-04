@@ -13,8 +13,6 @@ author :
 
 production_url : http://www.nicholasgunner.com
 
-version : 0.3.0
-
 baseurl : http://ngunner.github.io
 
  
@@ -48,11 +46,15 @@ prose:
   rooturl: '_posts'
   siteurl: 'http://www.nicholasgunner.com'
   metadata:
-    _posts:
+    _posts/blog:
       - name: "layout"
         field:
           element: "hidden"
           value: "post"
+      - name: "type"
+        field:
+          element: "hidden"
+          value: "blog"
       - name: "published"
         field:
           element: "checkbox"
@@ -71,10 +73,14 @@ prose:
           element: "multiselect"
           label: "Categories"
           options:
-            - name: "Video"
-              value: "video"
-            - name: "Content Design"
+            - name: "Code"
+              value: "code"
+            - name: "Content"
               value: "content"
+            - name: "Strategy"
+            - value: "strategy"
+            - name: "Tools"
+              value: "tools"
       - name: "author"
         field:
           element: "text"
