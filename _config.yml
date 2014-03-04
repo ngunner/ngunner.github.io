@@ -92,3 +92,47 @@ prose:
         field:
           element: "text"
           label: "URL to a featured image"
+    _posts/services:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "type"
+        field:
+          element: "hidden"
+          value: "service"
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "Published?"
+          value: "true"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Post title"
+      - name: "description"
+        field:
+          element: "text"
+          label: "Post summary"
+    _posts/showcase:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "type"
+        field:
+          element: "hidden"
+          value: "showcase"
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "Published?"
+          value: "true"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Post title"
+      - name: "description"
+        field:
+          element: "text"
+          label: "Post summary"
