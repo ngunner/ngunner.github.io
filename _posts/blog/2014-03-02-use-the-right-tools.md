@@ -15,8 +15,9 @@ I've been hearing this a lot lately: "Video is important", "we should do a video
 I'm all about producing and publishing compelling video content but I'm not sure the people urgently requesting them are asking questions like these: 
 - "Is the cost of putting this video together worth its potential benefits?"
 - "Could this message be more effective using a different medium?"
-- "Will anyone actually want to watch this video?"
+- "Will anyone actually watch this video?"
 
 ## The cost of video production
+
 ## Choosing a medium
 ## Hitting a broad enough audience
