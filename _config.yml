@@ -15,7 +15,7 @@ production_url : http://www.nicholasgunner.com
 
 version : 0.3.0
 
-baseurl : http://ngunner.github.io/
+baseurl : http://ngunner.github.io
 
  
 comments :
