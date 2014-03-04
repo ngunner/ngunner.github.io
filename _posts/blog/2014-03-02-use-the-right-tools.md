@@ -3,7 +3,7 @@ type: blog
 layout: post
 published: false
 title: "Video: like using a sludge hammer on a thumbtack"
-description: "Questions to ask when someone says: \"oh, let's do a video"
+description: "Questions to ask when someone says: \"oh, let's do a video!\""
 categories: 
   - ""
 author: ngunner
