@@ -45,6 +45,7 @@ timezone : America/New_York
 prose:
   rooturl: '_posts'
   siteurl: 'http://www.nicholasgunner.com'
+  media: 'media'
   metadata:
     _posts/blog:
       - name: "layout"
