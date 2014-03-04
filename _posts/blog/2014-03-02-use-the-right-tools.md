@@ -20,4 +20,4 @@ I'm all about producing and publishing compelling video content but I'm not sure
 ## The cost of video production
 
 ## Choosing a medium
-## Hitting a broad enough audience
+## Hitting a broad enough audience![Screen Shot 2014-03-03 at 9.11.06 AM.png](/media/Screen Shot 2014-03-03 at 9.11.06 AM.png)
