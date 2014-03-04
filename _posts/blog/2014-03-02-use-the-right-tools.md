@@ -1,4 +1,5 @@
 ---
+type: blog
 layout: post
 published: false
 title: "When is video the solution?"
