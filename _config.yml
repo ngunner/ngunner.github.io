@@ -96,7 +96,7 @@ prose:
       - name: "layout"
         field:
           element: "hidden"
-          value: "post"
+          value: "page"
       - name: "type"
         field:
           element: "hidden"
