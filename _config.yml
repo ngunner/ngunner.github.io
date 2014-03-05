@@ -78,7 +78,7 @@ prose:
             - name: "Content"
               value: "content"
             - name: "Strategy"
-            - value: "strategy"
+              value: "strategy"
             - name: "Tools"
               value: "tools"
       - name: "author"
