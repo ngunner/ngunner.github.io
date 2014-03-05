@@ -114,6 +114,10 @@ prose:
         field:
           element: "text"
           label: "Post summary"
+      - name: "image"
+        field:
+          element: "text"
+          label: "URL to a featured image"
     _posts/showcase:
       - name: "layout"
         field:
@@ -136,3 +140,7 @@ prose:
         field:
           element: "text"
           label: "Post summary"
+      - name: "image"
+        field:
+          element: "text"
+          label: "URL to a featured image"
