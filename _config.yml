@@ -96,11 +96,11 @@ prose:
       - name: "layout"
         field:
           element: "hidden"
-          value: "post"
+          value: "page"
       - name: "type"
         field:
           element: "hidden"
-          value: "page"
+          value: "service"
       - name: "published"
         field:
           element: "checkbox"
@@ -122,7 +122,7 @@ prose:
       - name: "layout"
         field:
           element: "hidden"
-          value: "post"
+          value: "page"
       - name: "type"
         field:
           element: "hidden"
