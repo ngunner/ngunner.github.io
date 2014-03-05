@@ -5,6 +5,10 @@ margin-left: auto;
 margin-right: auto;
 }
 
+blockquote {
+text-align: center;
+}
+
 h2 {
 max-width: 700px;
 margin-left: auto;
