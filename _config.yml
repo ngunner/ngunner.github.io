@@ -66,7 +66,7 @@ prose:
           label: "Post title"
       - name: "description"
         field:
-          element: "textarea"
+          element: "text"
           label: "Post summary"
       - name: "categories"
         field:
@@ -100,7 +100,7 @@ prose:
       - name: "type"
         field:
           element: "hidden"
-          value: "service"
+          value: "page"
       - name: "published"
         field:
           element: "checkbox"
@@ -112,7 +112,7 @@ prose:
           label: "Post title"
       - name: "description"
         field:
-          element: "textarea"
+          element: "text"
           label: "Post summary"
     _posts/showcase:
       - name: "layout"
@@ -134,5 +134,5 @@ prose:
           label: "Post title"
       - name: "description"
         field:
-          element: "textarea"
+          element: "text"
           label: "Post summary"
