@@ -1,3 +1,12 @@
+/* Top level styles */
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+}
+
 p {
 font-size: 20px;
 line-height: 33px;
@@ -23,6 +32,12 @@ margin-right: auto;
 text-align:center;
 }
 
+/* Helper classes */
+.text-center {
+text-align: center;
+}
+
+/* Menu font sizes */
 ul {
 font-size: 19px;
 max-width: 700px;
@@ -39,28 +54,13 @@ ul.navbar-nav {
 font-size: 18px;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-}
-html, body, #map {
-    height: 100%;
-}
-
-body { 
-padding-top: 0px; 
-}
-
+/* Author area */
 .date {
 text-align:center;
 }
 
-.text-center {
-text-align: center;
-}
 
-
-/**Top View of posts**/
+/*Top View of posts*/
 .topview {
 max-height: 750px;
 overflow: hidden;
@@ -119,7 +119,7 @@ display: none;
     background: rgba(0,0,0, .25);
 }  
 
-
+/* Mobile changes to top view */
 @media (max-width: 600px) {
 .fitvid {
 display:none;
