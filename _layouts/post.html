@@ -2,14 +2,16 @@
 layout: default
 ---
 <div class="topview">
-	<div class="fitvid">
+	<div class="fitvid tint">
 		{% if page.image %}<img class="img-responsive" src="{{ page.image }}">{% endif %}
-	</div><!-- fitvid -->
+	</div><!-- fitvid tinted -->
+	<div class="tint">
 	<img class="mobimg" src="{{ page.image }}">
-	<div class="col-md-6 col-md-offset-3 jumbotron toptext">
+	</div><!-- tint -->
+	<div class="col-md-6 col-md-offset-3 toptext">
 				<h1>{{ page.title }}</h1>
-				{% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
-				<a href="#siteauthor"><span class="glyphicon glyphicon-chevron-down"></span></a>
+				{% if page.description %}<p>{{ page.description }}</p>{% endif %}
+				<h3><a href="#siteauthor"><span class="glyphicon glyphicon-chevron-down text-center"></span></a></h3>
 	</div><!-- col-md-4 col-md-offset-4 jumbotron -->
 </div><!-- .topview --><a name="siteauthor"></a>
 <div class="container">
