@@ -87,6 +87,12 @@ text-align: left;
 color: white;
 }
 
+.toptext h1 {
+font-size: 40px;
+font-weight: bold;
+}
+
+/* Used for down arrow */
 .toptext h3 {
 text-align: center;
 margin-top: 50px;
