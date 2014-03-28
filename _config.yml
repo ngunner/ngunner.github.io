@@ -46,52 +46,6 @@ prose:
   rooturl: '_posts'
   siteurl: 'http://www.nicholasgunner.com'
   metadata:
-    _posts/blog:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-      - name: "type"
-        field:
-          element: "hidden"
-          value: "blog"
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "Published?"
-          value: "true"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-      - name: "description"
-        field:
-          element: "text"
-          label: "Post summary"
-      - name: "categories"
-        field:
-          element: "multiselect"
-          label: "Categories"
-          options:
-            - name: "Code"
-              value: "code"
-            - name: "Content"
-              value: "content"
-            - name: "Strategy"
-              value: "strategy"
-            - name: "Tools"
-              value: "tools"
-      - name: "author"
-        field:
-          element: "text"
-          label: "Author"
-          options:
-            - name: "Nicholas Gunner"
-              value: "ngunner"
-      - name: "image"
-        field:
-          element: "text"
-          label: "URL to a featured image"
     _posts/services:
       - name: "layout"
         field:
