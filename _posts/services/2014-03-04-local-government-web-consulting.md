@@ -41,9 +41,9 @@ By the end of these sessions, village leaders will be masters of the modern inte
 
 ### Costs
 
-Wordpress cities: Free
-Wordpress cities custom domain upgrade: $15/year
-Consultation sessions: $1,200 one time cost + travel expenses.
+- Wordpress cities: Free
+- Wordpress cities custom domain upgrade: $15/year
+- Consultation sessions: $1,200 one time cost + travel expenses.
 
 ### Timeframe
 
