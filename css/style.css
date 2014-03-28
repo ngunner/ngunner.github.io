@@ -38,11 +38,6 @@ text-align:center;
 text-align: center;
 }
 
-.contentanchor {
-position: absolute;
-bottom: 50px;
-}
-
 /* Menu font sizes */
 ul {
 font-size: 19px;
@@ -65,6 +60,10 @@ font-size: 18px;
 text-align:center;
 }
 
+/* lists */
+.listtitle {
+position: relative;
+}
 
 /*Top View of posts*/
 .topview {
