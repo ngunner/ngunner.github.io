@@ -23,15 +23,15 @@ My local government web consulting package arms community leaders with knowledge
 ### How:
 Consultation is divided into three sessions that can be scheduled as fits the client. These sessions include visioning, marketing, and hackathon sessions.
 
-####_Visioning_
+_Visioning_
 
 In our visioning session, we focus on common information that the community expects to see online, who is responsible for that information and how to organize it in a web context. The goal of this session is to establish a clear plan for publishing and maintaining public information online. We’ll define who is in charge of what information, set timelines for getting the website up to date and a long term framework for keeping it that way. Public information includes meeting minutes, key addresses, hours of operation, contact info etc.
 
-####_Marketing & Content Strategy_
+_Marketing & Content Strategy_
 
 City governments are important in that they keep current citizens informed but they also serve as a way to reach out to people outside of the community. Our marketing session will determine the voice and character of Fredonia. We’ll formulate a communication plan for marketing the town, take complimentary photography during this session and give tips on collecting and producing multimedia. Marketing content includes event listings, blog posts, attraction pages, etc.
 
-####_Hackathon_
+_Hackathon_
 
 Once we’ve established a plan to roll out and maintain an effective web presence and understand how we will market Fredonia, we need to actually build out the site! Our hackathon session will pull everything together to create your new website using Wordpress Cities. You’ll learn by doing and we’ll identify workflow and technical issues as we go. We’ll make design and user experience decisions and implement them into the site. You’ll learn how to add users to the website, what permissions mean, media handling, categories, tags, etc.
 
