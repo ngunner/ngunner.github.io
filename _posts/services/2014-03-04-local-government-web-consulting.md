@@ -23,7 +23,7 @@ My local government web consulting package arms community leaders with knowledge
 ### How:
 Consultation is divided into three sessions that can be scheduled as fits the client. These sessions include visioning, marketing, and hackathon sessions.
 
-_Visioning_
+->_Visioning_<-
 
 In our visioning session, we focus on common information that the community expects to see online, who is responsible for that information and how to organize it in a web context. The goal of this session is to establish a clear plan for publishing and maintaining public information online. We’ll define who is in charge of what information, set timelines for getting the website up to date and a long term framework for keeping it that way. Public information includes meeting minutes, key addresses, hours of operation, contact info etc.
 
