@@ -7,6 +7,8 @@ description: "Let's bring a low overhead, inexpensive, and beautiful web presenc
 image: "http://farm4.staticflickr.com/3791/12947370963_7a523389f9_h.jpg"
 ---
 
+###Intro
+
 The web can seem like a scary place. But it’s becoming more and more accessible and in today’s world, local governments have no excuse for not having a decent web presence. Not only are there easy to use tools for making beautiful, low overhead, and inexpensive websites but there are also expectations from taxpayers to be transparent and to communicate in a fluid manner. Cities also want to show all that they have to offer to the public in order to attract tourists, businesses, and new citizens.
 
 My local government web consulting package arms community leaders with knowledge and tools to produce a modern web presence. Every aspect of the package has these core values in mind: 
