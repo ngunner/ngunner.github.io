@@ -1,136 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
+	<!-- Head -->
+	<title>Nicholas Gunner | Digital Storyteller</title>
 
-    <title>Hello, I'm Nick.</title>
-    <meta name="description" content="New Media Manager at the State University of New York at Fredonia and a freelance web maker. I use digital storytelling to make important information accessible.">
-    <meta name="author" content="Nicholas Gunner">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta charset="utf-8"> 
+<meta name="description" content="I make important information as assessible as possible" />
+<meta name="keywords" content="videography, video, web development, resume" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" href="/ng.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png">
+<!-- Ubuntu typeface -->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+<!-- Font Awesome CSS -->
+<link href="/plugins/font-awesome/css/font-awesome.min.css" title="compact" rel="stylesheet" type="text/css" />
+<!-- Bootstrap CSS -->
+<link href="/plugins/bootstrap/css/bootstrap.min.css" title="compact" rel="stylesheet" type="text/css" />
 
-    <!-- Latest compiled and minified bootstrap CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    
-    <!-- Font Awesome -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/css/style.css" title="compact" rel="stylesheet" type="text/css" />
+	  </head>
+	  <body>
+	<!-- Contents -->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-gunner" role="navigation">
+	<div class="container-fluid">
+	<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">NG</a>
+		</div><!-- navbar-header -->
 
-	<!-- Leaflet maps -->
-	<link rel="stylesheet" href="/plugins/leaflet/leaflet.css" />
-	
-	<!-- Leaflet Awesome icons -->
-	<link rel="stylesheet" href="/plugins/leaflet-awesome/leaflet.awesome-markers.css">
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa fa-list-ul"></span> Chapters</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#intro">Intro</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- collapse navbar-collapse -->
+	</div><!-- container-fluid -->
+</nav>
 
-	<!-- Custom styles -->
-	<link rel="stylesheet" href="/css/style.css">
-  </head>
+	<!-- Page Content -->
+	<div style="margin-top:50px;"></div>
+<div class="gunner-title">
+	<h1>Nicholas Gunner</h1>
+	<p>Digital Storyteller</p>
+	<a href="#intro">
+		<button type="button" class="btn btn-default">View Story</button>
+	</a> 
+	<a href="/public/Nicholas_Gunner_Resume.pdf">
+	<button type="button" class="btn btn-default">Download 'old-school' resume</button>
+	</a>
+</div><!-- gunner-title -->
 
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <a class="navbar-brand" style="font-family:HelveticaNeue-Light;font-size:30px;color:white;" href="/">Nicholas Gunner</a>
-        </div>
-
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-        
-          <ul class="nav navbar-nav navbar-right">
-          	<li><a href="/pages/services.html">Services</a></li>
-          	<li><a href="http://nicholasgunner.tumblr.com">Showcase</a></li>
-          	<li><a href="http://www.twitter.com/nicholas_gunner"><i class="fa fa-twitter"></i></a></li>
-          	<li><a href="http://www.github.com/ngunner"><i class="fa fa-github"></i></a></li>
-          	<li><a href="https://medium.com/@nicholas_gunner"><i class="fa fa-pencil-square"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-      <div class="topview">
-	<div class="fitvid tint">
-		<img class="img-responsive" src="http://farm4.staticflickr.com/3730/12947651433_2823d62b2a_h.jpg">
-	</div><!-- fitvid tinted -->
-	<div class="tint">
-	<img class="mobimg" src="http://farm4.staticflickr.com/3730/12947651433_2823d62b2a_h.jpg">
-	</div><!-- tint -->
-	<div class="col-md-6 col-md-offset-3 toptext">
-				<h1>Hello, I'm Nick.</h1>
-				<p>New Media Manager at the State University of New York at Fredonia and a freelance web maker. I use digital storytelling to make important information accessible.</p>
-				<h3><a href="#siteauthor"><span class="glyphicon glyphicon-chevron-down text-center"></span></a></h3>
-	</div><!-- col-md-4 col-md-offset-4 jumbotron -->
-</div><!-- .topview --><a name="siteauthor"></a>
+<div class="row">
+<hr><a id="intro"></a>
 <div class="container">
-	<h2 id="about_me">About me:</h2>
-
+<div class="col-md-8 col-md-offset-2">
+<h1>Intro</h1>
 <p>I’m the New Media Manager at the State University of New York in Fredonia where I market the campus by telling its story online. I lead a team of students and enable them to transmit their experiences to large target audiences via social media. Our content is changing the admissions landscape at Fredonia and is keeping our college competitive in the digital space.</p>
 
 <p>Before working at Fredonia I operated a virtual tour business called Pan Owl, I was a multimedia specialist at Digitall inc., in Jamestown, a production intern with both NPR’s State of the Re:Union and the WBFO news room in Buffalo. I’ve also produced freelance content for WBEZ in Chicago. I’ve founded and lead several web initiatives which I list on this website.</p>
 
 <p>All in all, I am a content strategist, which is a fancy way of saying that I make important information accessible through digital storytelling.</p>
-</div><!-- .container -->
 
-      <hr>
-    <div class="col-md-4 col-md-offset-4">
-      <div class="panel panel-primary">
-      	<div class="panel-heading">
-    		<h3 class="panel-title">Contact</h3>
-  		</div>
-  		<div class="panel-body text-center">
-    		<b>Nicholas Gunner</b><br>
-    		716-410-3261<br>
-    		<a href="mailto:gunnernr@gmail.com"><button type="button" class="btn btn-sm btn-primary"><i class="fa fa-envelope"></i> Email me</button></a>
-    <div class="socialicons">
-		<a href="http://www.twitter.com/nicholas_gunner"><i class="fa fa-twitter-square"></i></a> <a href="http://www.github.com/ngunner"><i class="fa fa-github"></i></a>
-	</div><!-- socialicons -->
-  		</div>
-      </div>
-    </div>
+</div><!-- col-md-8 col-md-offset-2 -->
+</div><!-- container -->
+</div><!-- row -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<!-- FitVids Pluggin -->
-	<script src="/plugins/fitvids/jquery.fitvids.js"></script>
-	<!-- Fitvids script -->
-	<script>
-  $(document).ready(function(){
-    // Target your .container, .wrapper, .post, etc.
-    $(".fitvid").fitVids();
-  });
-	</script>
-	<!-- smooth scroll -->
-	<script>
-	$(function() {
-  $('a[href=#siteauthor]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-	</script>
-	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<!-- 
+<div class="row">
+<hr><a id="objective"></a>
+<div class="container">
+<div class="col-md-8 col-md-offset-2">
+<h1>Objective</h1>
+<p>I’m the New Media Manager at the State University of New York in Fredonia where I market the campus by telling its story online. I lead a team of students and enable them to transmit their experiences to large target audiences via social media. Our content is changing the admissions landscape at Fredonia and is keeping our college competitive in the digital space.</p>
 
-  ga('create', 'UA-48524948-1', 'http://www.nicholasgunner.com');
-  ga('send', 'pageview');
+<p>Before working at Fredonia I operated a virtual tour business called Pan Owl, I was a multimedia specialist at Digitall inc., in Jamestown, a production intern with both NPR’s State of the Re:Union and the WBFO news room in Buffalo. I’ve also produced freelance content for WBEZ in Chicago. I’ve founded and lead several web initiatives which I list on this website.</p>
 
-</script>
+<p>All in all, I am a content strategist, which is a fancy way of saying that I make important information accessible through digital storytelling.</p>
+<p>I’m the New Media Manager at the State University of New York in Fredonia where I market the campus by telling its story online. I lead a team of students and enable them to transmit their experiences to large target audiences via social media. Our content is changing the admissions landscape at Fredonia and is keeping our college competitive in the digital space.</p>
+
+<p>Before working at Fredonia I operated a virtual tour business called Pan Owl, I was a multimedia specialist at Digitall inc., in Jamestown, a production intern with both NPR’s State of the Re:Union and the WBFO news room in Buffalo. I’ve also produced freelance content for WBEZ in Chicago. I’ve founded and lead several web initiatives which I list on this website.</p>
+
+<p>All in all, I am a content strategist, which is a fancy way of saying that I make important information accessible through digital storytelling.</p>
+
+</div><!~~ col-md-8 col-md-offset-2 ~~>
+</div><!~~ container ~~>
+</div><!~~ row ~~>
+ -->
+
+	<!-- Foot -->
+	<!-- jQuery -->
+<script src="/plugins/jquery/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap js -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

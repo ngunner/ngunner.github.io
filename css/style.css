@@ -1,159 +1,72 @@
-/* Top level styles */
-body {
-    padding: 0;
-    margin: 0;
-}
-html, body, #map {
-    height: 100%;
+/******************** CUSTOM CSS ********************/
+
+/********** TOP LEVEL **********/
+p {
+
 }
 
-p {
-font-size: 20px;
-line-height: 33px;
-max-width: 700px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 20px;
-font-family: georgia;
-color: #474747;
+h1 {
+font-family: 'Ubuntu', sans-serif;
 }
 
 h2 {
-max-width: 800px;
-margin-left: auto;
-margin-right: auto;
-text-align:center;
-color: #474747;
+font-family: 'Ubuntu', sans-serif;
 }
 
 h3 {
-max-width: 700px;
-margin-left: auto;
-margin-right: auto;
-text-align:center;
+font-family: 'Ubuntu', sans-serif;
 }
 
-/* Helper classes */
-.text-center {
+h4 {
+font-family: 'Ubuntu', sans-serif;
+}
+
+/********** BOOTSTRAP OVERRIDES **********/
+
+/* Navbar */
+.navbar-gunner {
+background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-brand {
+font-family: 'Ubuntu', sans-serif;
+}
+
+/* Navbar mobile */
+@media (max-width: 768px) {
+	.navbar-gunner {
+	background-color: rgba(255, 255, 255, 1);
+	}
+}
+
+/********** CUSTOM ELEMENTS **********/
+
+/* Site title area */
+.gunner-title {
 text-align: center;
 }
 
-/* Menu font sizes */
-ul {
-font-size: 19px;
-max-width: 700px;
-margin-left: auto;
-margin-right: auto;
-font-family: georgia;
+.gunner-title h1 {
+font-size: 80px;
+padding-top: 160px;
+font-family: 'Ubuntu', sans-serif;
+font-weight: 300;
 }
 
-ul.pager {
-font-size: 14px;
+.gunner-title button {
+margin-top: 160px;
 }
 
-ul.navbar-nav {
-font-size: 18px;
-}
+/* Site title area mobile */
+@media (max-width: 768px) {
+	.gunner-title h1 {
+	font-size: 40px;
+	padding-top: 80px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
+	}
 
-/* Author area */
-.date {
-text-align:center;
-}
-
-/* lists */
-.listtitle {
-position: relative;
-}
-
-/*Top View of posts*/
-.topview {
-max-height: 750px;
-overflow: hidden;
-}
-
-.fitvid {
-width:100%;
-background-color: black;
-}
-
-
-.toptext {
-margin-top: 80px;
-position: absolute;
-text-align: left;
-background: transparent;
-color: white;
-top: 5px;
-}
-
-.toptext p {
-font-size: 22px;
-text-align: left;
-color: white;
-}
-
-.toptext h1 {
-font-size: 40px;
-font-weight: bold;
-}
-
-/* Used for down arrow */
-.toptext h3 {
-text-align: center;
-margin-top: 50px;
-}
-
-.mobimg {
-display: none;
-}
-
-.tint {  
-    position: relative;  
-    float: left;  
-    cursor: pointer;  
-}  
-  
-.tint:before {  
-    content: "";  
-    display: block;  
-    position: absolute;  
-    top: 0;  
-    bottom: 0;  
-    left: 0;  
-    right: 0;  
-    background: rgba(0,0,0, .25);
-}  
-
-/* Mobile changes to top view */
-@media (max-width: 600px) {
-.fitvid {
-display:none;
-}
-
-.mobimg {
-height: 520px;
-display: inline;
-}
-}
-
-
-/**NAVBAR**/
-.navbar-inner {
-background-color: rgba(0, 0, 0, 0.6);
-}
-.navbar-inner container {
-background-color: rgba(0, 0, 0, 0.6);
-}
-.navbar {
-background-color: rgba(0, 0, 0, 0.6);
-}
-
-.navbar-inverse .navbar-brand { color: #D4D4D4}
-.navbar-inverse .navbar-nav>li>a { color: #D4D4D4}
-.navbar-nav>.open>a:focus { color: #D4D4D4}
-
-
-/* Social Icons */
-.socialicons {
-font-size: 20px;
+	.gunner-title button {
+	margin-top: 80px;
+	}
 }

@@ -1,100 +1,20 @@
 permalink: /:year/:month/:day/:title 
 
-pygments: true
+highlighter: pygments
+markdown: kramdown
 
 title : Nicholas Gunner
-tagline: Multimedia Storyteller
-author : 
+tagline: Digital Storyteller
+author :
   name : Nicholas Gunner
   email : gunnernr@gmail.com
   github : ngunner
-  twitter : nicholas_gunner
-  web : http://www.nicholasgunner.com
+  twitter : ngunner
 
-production_url : http://www.nicholasgunner.com
+production_url : http://ngunner.github.io/
 
-baseurl : http://ngunner.github.io
+version : 0.1.0
 
- 
-comments :
-  provider : disqus
-  disqus :
-    short_name : 
-   
-        
-analytics :
-  google : 
-    tracking_id : 'UA-48524948-1'
+baseurl : http://nicholasgunner.com
 
-
-authors:
-  ngunner:
-    name: Nicholas Gunner
-    display_name: Nicholas Gunner
-    bio: New Media Manager at SUNY Fredonia. Multimedia Storyteller.
-    gravatar: http://www.gravatar.com/avatar/a85d870dce3cc177b6b0016a1ef4c200.png
-    email: gunnernr@gmail.com
-    web: http://www.nicholasgunner.com
-    twitter: nicholas_gunner
-    github: ngunner
-   
-  
 timezone : America/New_York
-
-
-prose:
-  rooturl: '_posts'
-  siteurl: 'http://www.nicholasgunner.com'
-  metadata:
-    _posts/services:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "page"
-      - name: "type"
-        field:
-          element: "hidden"
-          value: "service"
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "Published?"
-          value: "true"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-      - name: "description"
-        field:
-          element: "text"
-          label: "Post summary"
-      - name: "image"
-        field:
-          element: "text"
-          label: "URL to a featured image"
-    _posts/showcase:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "page"
-      - name: "type"
-        field:
-          element: "hidden"
-          value: "showcase"
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "Published?"
-          value: "true"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-      - name: "description"
-        field:
-          element: "text"
-          label: "Post summary"
-      - name: "image"
-        field:
-          element: "text"
-          label: "URL to a featured image"
