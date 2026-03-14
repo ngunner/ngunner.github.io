@@ -6,9 +6,9 @@ There are a few reasons you might be reading this message. Maybe you know me, an
 
 My intention with this message (and future updates) is to introduce you to a new idea I’m working on: [Recipe Route](https://reciperoute.org).
 
-If we haven’t met, my name is Nicholas Gunner. I’m a solopreneur and the founder of [Orbitist](https://orbitist.com), where I develop mapping software for agriculture. I’m also a [NASA Acres] PhD student at Cornell, where I use satellites and AI to help farmers make better decisions. Beyond that, my wife, my sons, and I run a small farm called Gunner Gardens.
+If we haven’t met, my name is Nicholas Gunner. I’m a solopreneur and the founder of [Orbitist](https://orbitist.com), where I develop mapping software for agriculture. I’m also a [NASA Acres](https://nasaacres.org) PhD student at [Cornell](https://www.cair.cals.cornell.edu/), where I use satellites and AI to help farmers make better decisions. Beyond that, my wife, my sons, and I run a small farm called [Gunner Gardens](https://gunnergardens.com).
 
-What is Recipe Route?
+## What is Recipe Route?
 
 Recipe Route connects communities with their farms. The app generates recipes based on what you have at home, what’s coming out of the garden, or what’s available at nearby farms. If you’re a farmer, Recipe Route provides a place to share what you have for sale.
 
@@ -18,10 +18,12 @@ For new farmers, I’m developing tools within Recipe Route to guide and coach y
 
 In the end, I want Recipe Route to move local food from farm to table in the most economical, ecological, and enjoyable way possible.
 
-How you can help?
+## How you can help?
 
 I need perspectives, connections, advocates, and critics. I need help evaluating how to best implement this idea. More than anything, I need partners like you—to use the app, share your thoughts, and help shape the future of Recipe Route.
 
 Please consider giving it a try!
 
 ~Nick
+
+[RECIPEROUTE.ORG](https://reciperoute.org)
