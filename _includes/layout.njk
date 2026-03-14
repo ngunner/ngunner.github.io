@@ -13,6 +13,9 @@
     .post-list { list-style: none; padding: 0; margin: 0; }
     .post-list li { margin-bottom: 0.75rem; }
     .post-list time { color: #666; font-size: 0.9rem; }
+    .post-header { margin-bottom: 1.5rem; }
+    .post-header h2 { font-size: 1.5rem; font-weight: 600; margin: 0 0 0.25rem 0; }
+    .post-header time { color: #666; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -20,6 +23,12 @@
     <h1><a href="/">{{ site.name }}</a></h1>
   </header>
   <main>
+    {% if date %}
+    <header class="post-header">
+      <h2>{{ title }}</h2>
+      <time datetime="{{ date | date('yyyy-MM-dd') }}">{{ date | date('yyyy-MM-dd') }}</time>
+    </header>
+    {% endif %}
     {{ content | safe }}
   </main>
 </body>

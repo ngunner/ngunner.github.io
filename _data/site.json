@@ -1,4 +1,11 @@
 {
   "name": "Nicholas Gunner",
-  "bio": "Hello! I'm Nick. I am the founder of Orbitist LLC, a firm focussed on mapping, agriculture, and A.I. technology development. I'm also a PhD student at the Cyber Agricultural Intelligence and Robotics Lab at Cornell Agritech. My research is supported by NASA Acres and is focussed on the development of farm decision support systems that leverage ground and space-based data along with AI to help farmers improve their operations."
+  "bio": "Hello! I'm Nick. I am the founder of <a target=\"_blank\" href=\"https://orbitist.com\">Orbitist LLC</a>, where I work on projects like <a target=\"_blank\" href=\"https://www.reciperoute.org/\">Recipe Route</a> and <a target=\"_blank\" href=\"https://efficientvineyard.com/\">Efficient Vineyard</a>. I'm also a PhD student at the <a target=\"_blank\" href=\"https://www.cair.cals.cornell.edu/\">Cyber Agricultural Intelligence and Robotics Lab at Cornell Agritech</a>. My research is supported by <a target=\"_blank\" href=\"https://www.nasaacres.org/\">NASA Acres</a> and is focussed on the development of farm decision support systems that leverage ground and space-based data along with AI to help farmers improve their operations.",
+  "links": [
+    {
+      "name": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=7jM32w0AAAAJ&hl=en",
+      "icon": "google-scholar"
+    }
+  ]
 }
