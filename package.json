@@ -1,0 +1,12 @@
+{
+  "name": "ngunner.github.io",
+  "version": "1.0.0",
+  "description": "Minimal personal site - Nicholas Gunner",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

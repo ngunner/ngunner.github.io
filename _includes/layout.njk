@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.name }}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 42rem; margin: 0 auto; padding: 1.5rem; color: #1a1a1a; }
+    a { color: #0066cc; }
+    a:hover { text-decoration: underline; }
+    header { margin-bottom: 2rem; }
+    h1 { font-size: 1.25rem; font-weight: 600; margin: 0; }
+    .post-list { list-style: none; padding: 0; margin: 0; }
+    .post-list li { margin-bottom: 0.75rem; }
+    .post-list time { color: #666; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="/">{{ site.name }}</a></h1>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+</body>
+</html>
