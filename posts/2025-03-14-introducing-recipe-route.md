@@ -2,7 +2,7 @@
 title: Introducing Recipe Route  
 date: 2025-03-14
 ---
-There are a few reasons you might be reading this message. Maybe you know me, and I’ve pulled you into yet another one of my projects. Perhaps I shamelessly recruited you from another app I maintain, like [TrailHUB.org](https://trailhub.org). If this is irrelevant to you, please forgive me—and feel free to unsubscribe.
+There are a few reasons you might be reading this message. Maybe you know me, and I’ve pulled you into yet another one of my projects. Perhaps I shamelessly recruited you from another app I maintain, like [TrailHUB.org](https://trailhub.org). If this is irrelevant to you, please forgive me and feel free to unsubscribe.
 
 My intention with this post is to introduce you to a new idea I’m working on: [Recipe Route](https://reciperoute.org).
 
