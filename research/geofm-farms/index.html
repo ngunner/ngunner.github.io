@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adapting Geospatial Foundation Models to Working Farms — Nicholas Gunner</title>
+<meta name="description" content="An interactive overview of a NASA FINESST proposal: federated, multi-source ground truth for adapting geospatial foundation models to working farms.">
+<style>
+  :root{
+    --ink:#10203f;
+    --slate:#475569;
+    --mute:#64748b;
+    --line:#e2e8f0;
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --nasa:#0b3d91;
+    --nasa-red:#fc3d21;
+    --o1:#d97a2b;      /* sensing / observation */
+    --o1-bg:#fdf3e8;
+    --o2:#0e8d83;      /* federation / network */
+    --o2-bg:#e7f6f4;
+    --o3:#3f8f4f;      /* agroecosystem science */
+    --o3-bg:#eaf5ec;
+    --radius:16px;
+    --shadow:0 1px 2px rgba(16,32,63,.06), 0 12px 30px -18px rgba(16,32,63,.35);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--nasa)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* ---------- top bar ---------- */
+  .topbar{font-size:.82rem;padding:14px 0;color:var(--mute)}
+  .topbar a{color:var(--mute);text-decoration:none}
+  .topbar a:hover{color:var(--nasa);text-decoration:underline}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(900px 380px at 82% -12%, rgba(11,61,145,.16), transparent 60%),
+      linear-gradient(180deg,#0b1f44 0%, #0b3d91 100%);
+    color:#fff;border-radius:22px;padding:38px 34px 34px;position:relative;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.12), transparent 62%);
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#bcd2ff;margin:0 0 14px
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--nasa-red)}
+  .hero h1{font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.16;margin:0 0 12px;font-weight:760;letter-spacing:-.01em;max-width:20ch}
+  .hero .sub{font-size:1.04rem;color:#dbe6fb;max-width:62ch;margin:0 0 20px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    font-size:.76rem;font-weight:600;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.22);color:#eaf1ff;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)
+  }
+  .byline{margin-top:22px;font-size:.86rem;color:#c3d4f5}
+  .byline b{color:#fff;font-weight:650}
+
+  /* ---------- how to read ---------- */
+  .howto{
+    display:flex;gap:12px;align-items:flex-start;margin:22px 0 6px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--slate);font-size:.92rem
+  }
+  .howto svg{flex:0 0 auto;margin-top:2px}
+  .howto b{color:var(--ink)}
+
+  section.flow{padding:30px 0 8px}
+  .seclabel{
+    font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--mute);
+    text-align:center;margin:30px 0 18px;display:flex;align-items:center;gap:14px;justify-content:center
+  }
+  .seclabel::before,.seclabel::after{content:"";height:1px;background:var(--line);flex:1;max-width:120px}
+
+  /* ---------- node cards ---------- */
+  .node{
+    position:relative;width:100%;text-align:left;cursor:pointer;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;
+    box-shadow:var(--shadow);transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    font:inherit;color:inherit;display:block
+  }
+  .node:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(16,32,63,.5);border-color:#cdd9ec}
+  .node:focus-visible{outline:3px solid #9bb8f0;outline-offset:3px}
+  .node .kicker{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .node .tag{
+    font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:4px 9px;border-radius:7px;color:#fff;white-space:nowrap
+  }
+  .node h3{margin:0;font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+  .node p{margin:6px 0 0;color:var(--slate);font-size:.96rem}
+  .node .more{
+    margin-top:12px;font-size:.8rem;font-weight:700;color:var(--nasa);display:inline-flex;align-items:center;gap:5px;opacity:.85
+  }
+  .node:hover .more{opacity:1}
+  .node .more svg{transition:transform .16s ease}
+  .node:hover .more svg{transform:translateX(3px)}
+
+  /* accent strip */
+  .node{border-left:5px solid var(--nasa)}
+  .node.problem{border-left-color:var(--nasa-red)}
+  .node.thesis{border-left-color:var(--nasa)}
+  .node.testbed{border-left-color:#7c5cc4}
+  .node.payoff{border-left-color:var(--nasa)}
+  .tag.t-problem{background:var(--nasa-red)}
+  .tag.t-thesis{background:var(--nasa)}
+  .tag.t-testbed{background:#7c5cc4}
+  .tag.t-payoff{background:var(--nasa)}
+
+  /* connectors */
+  .connector{display:flex;justify-content:center;color:#b6c4dc;padding:8px 0}
+  .connector svg{display:block}
+
+  /* testbed: three farms */
+  .farms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+  .farm{
+    background:#faf9fd;border:1px solid #eae6f5;border-radius:12px;padding:14px;font-size:.9rem
+  }
+  .farm .ico{font-size:1.5rem;line-height:1}
+  .farm h4{margin:8px 0 2px;font-size:.98rem}
+  .farm .crop{color:#7c5cc4;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+  .farm p{margin:6px 0 0;color:var(--mute);font-size:.85rem}
+
+  /* ---------- the engine (3 objectives) ---------- */
+  .engine{margin:6px 0 0}
+  .engine-head{text-align:center;margin-bottom:6px}
+  .engine-head h2{margin:0;font-size:1.18rem}
+  .engine-head p{margin:6px auto 0;color:var(--slate);max-width:58ch;font-size:.95rem}
+  .objs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;position:relative}
+  .obj{
+    cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:0;overflow:hidden;text-align:left;font:inherit;color:inherit;box-shadow:var(--shadow);
+    transition:transform .16s ease, box-shadow .16s ease;display:flex;flex-direction:column
+  }
+  .obj:hover{transform:translateY(-4px);box-shadow:0 20px 44px -22px rgba(16,32,63,.5)}
+  .obj:focus-visible{outline:3px solid #9bb8f0;outline-offset:3px}
+  .obj .bar{height:6px}
+  .obj-1 .bar{background:var(--o1)} .obj-2 .bar{background:var(--o2)} .obj-3 .bar{background:var(--o3)}
+  .obj .body{padding:18px 18px 20px}
+  .obj .onum{
+    display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    font-weight:800;font-size:.9rem;color:#fff;margin-bottom:10px
+  }
+  .obj-1 .onum{background:var(--o1)} .obj-2 .onum{background:var(--o2)} .obj-3 .onum{background:var(--o3)}
+  .obj .step{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);margin-left:8px}
+  .obj h3{margin:0 0 6px;font-size:1.04rem;line-height:1.3}
+  .obj p{margin:0;color:var(--slate);font-size:.92rem}
+  .obj .hyp{
+    margin-top:12px;font-size:.8rem;border-radius:9px;padding:9px 11px;line-height:1.45;font-weight:500
+  }
+  .obj-1 .hyp{background:var(--o1-bg);color:#8a4d12}
+  .obj-2 .hyp{background:var(--o2-bg);color:#0a5b54}
+  .obj-3 .hyp{background:var(--o3-bg);color:#2c6437}
+  .obj .hyp b{font-weight:800}
+  .obj .more{margin-top:12px;font-size:.78rem;font-weight:700;display:inline-flex;align-items:center;gap:5px}
+  .obj-1 .more{color:var(--o1)} .obj-2 .more{color:var(--o2)} .obj-3 .more{color:var(--o3)}
+  .loopnote{
+    text-align:center;margin:16px auto 0;max-width:60ch;font-size:.85rem;color:var(--mute);
+    display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap
+  }
+  .loopnote .pill{background:#eef2f9;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-weight:600;color:var(--slate)}
+
+  /* ---------- supporting sections ---------- */
+  section.block{padding:34px 0}
+  .block h2.sec{font-size:1.35rem;margin:0 0 6px;letter-spacing:-.01em}
+  .block .lead{color:var(--slate);margin:0 0 20px;max-width:64ch}
+
+  /* timeline */
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .yr{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);position:relative}
+  .yr .ytag{font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--nasa)}
+  .yr h3{margin:6px 0 10px;font-size:1.05rem}
+  .yr p{margin:0;color:var(--slate);font-size:.92rem}
+  .yr .pub{
+    margin-top:14px;font-size:.82rem;background:#eef3fb;border-left:3px solid var(--nasa);
+    border-radius:6px;padding:9px 11px;color:var(--ink)
+  }
+  .yr .pub b{color:var(--nasa)}
+  .yr .htag{display:inline-block;margin-top:10px;font-size:.72rem;font-weight:800;color:#fff;background:var(--ink);border-radius:6px;padding:3px 8px}
+
+  /* feasibility */
+  .feas{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .feasitem{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;gap:13px;box-shadow:var(--shadow)}
+  .feasitem .ck{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--o3-bg);color:var(--o3);display:flex;align-items:center;justify-content:center;font-weight:900}
+  .feasitem h4{margin:2px 0 4px;font-size:.98rem}
+  .feasitem p{margin:0;color:var(--slate);font-size:.89rem}
+
+  /* references */
+  details.refs{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:4px 20px;box-shadow:var(--shadow)}
+  details.refs summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;align-items:center;gap:10px}
+  details.refs summary::-webkit-details-marker{display:none}
+  details.refs summary .tw{transition:transform .2s ease;color:var(--mute)}
+  details.refs[open] summary .tw{transform:rotate(90deg)}
+  details.refs ol{margin:0 0 16px;padding-left:22px;color:var(--slate);font-size:.86rem;line-height:1.7}
+  details.refs li{margin-bottom:4px}
+
+  footer{padding:40px 0 60px;color:var(--mute);font-size:.86rem;text-align:center}
+  footer a{color:var(--nasa)}
+
+  /* ---------- drawer ---------- */
+  .backdrop{position:fixed;inset:0;background:rgba(8,16,33,.5);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:40;backdrop-filter:blur(2px)}
+  .backdrop.open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:min(560px,94vw);background:#fff;z-index:50;
+    transform:translateX(102%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+    box-shadow:-20px 0 60px -25px rgba(8,16,33,.6);display:flex;flex-direction:column
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{padding:22px 26px 16px;border-bottom:1px solid var(--line);position:relative}
+  .drawer-head .dtag{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;display:inline-block;padding:4px 9px;border-radius:7px;margin-bottom:10px}
+  .drawer-head h2{margin:0;font-size:1.3rem;line-height:1.25;letter-spacing:-.01em;padding-right:34px}
+  .drawer-close{
+    position:absolute;top:18px;right:20px;width:34px;height:34px;border-radius:9px;border:1px solid var(--line);
+    background:#fff;cursor:pointer;font-size:1.1rem;color:var(--slate);display:flex;align-items:center;justify-content:center
+  }
+  .drawer-close:hover{background:var(--bg);color:var(--ink)}
+  .drawer-body{padding:22px 26px 40px;overflow-y:auto}
+  .drawer-body h4{margin:22px 0 8px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+  .drawer-body p{margin:0 0 12px;color:var(--slate);font-size:.95rem}
+  .drawer-body ul{margin:0 0 12px;padding-left:20px;color:var(--slate);font-size:.93rem}
+  .drawer-body ul li{margin-bottom:7px}
+  .drawer-body .hbox{border-radius:11px;padding:14px 16px;font-size:.92rem;margin:4px 0 6px}
+  .drawer-body .hbox .hlab{font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .drawer-body .nasa-tie{
+    display:flex;gap:11px;align-items:flex-start;background:#eef3fb;border:1px solid #d8e4f7;border-radius:11px;
+    padding:13px 15px;margin-top:8px;font-size:.9rem;color:var(--ink)
+  }
+  .drawer-body .nasa-tie b{color:var(--nasa)}
+  .drawer-body .nasa-tie .flag{font-size:1.1rem}
+
+  @media (max-width:760px){
+    .farms,.objs,.timeline,.feas{grid-template-columns:1fr}
+    .hero{padding:30px 22px}
+    .obj .step{display:block;margin:6px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap topbar"><a href="/">← Nicholas Gunner</a></div>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow"><span class="dot"></span> NASA FINESST · ROSES F.5 · Earth Science</p>
+    <h1>Adapting Geospatial Foundation Models to Working Farms</h1>
+    <p class="sub">Federated, multi-source ground truth for agroecosystem science — turning NASA's Prithvi foundation model into something that actually works on real, heterogeneous farms.</p>
+    <div class="chips">
+      <span class="chip">Carbon Cycle &amp; Ecosystems</span>
+      <span class="chip">New Observing Strategies</span>
+      <span class="chip">Surface Biology &amp; Geology</span>
+      <span class="chip">NASA Acres</span>
+    </div>
+    <p class="byline"><b>Future Investigator:</b> Nick Gunner · CAIR Lab, Cornell AgriTech &nbsp;·&nbsp; <b>Advisors:</b> Dr.&nbsp;Yu Jiang, Dr.&nbsp;Katie Gold, Dr.&nbsp;Sara Emery, Dr.&nbsp;Terry Bates &nbsp;·&nbsp; <em>Draft for advisor review</em></p>
+  </header>
+
+  <div class="howto">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b3d91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <div><b>How to read this:</b> follow the spine from the problem down to the payoff. The three colored cards in the middle are the engine of the proposal — the objectives. <b>Click any card</b> to open its full detail, hypothesis, and methods.</div>
+  </div>
+
+  <!-- ============ LOGIC FLOW ============ -->
+  <section class="flow">
+
+    <p class="seclabel">The logic</p>
+
+    <button class="node problem" data-key="problem">
+      <span class="kicker"><span class="tag t-problem">The bottleneck</span></span>
+      <h3>Foundation models are generic. Farms are not.</h3>
+      <p>geoFMs like NASA–IBM's Prithvi promise transferable vegetation representations — but adapting them to the heterogeneity of real working farms is gated by the cost of ground-truth labels. This is where remote sensing for agriculture stalls.</p>
+      <span class="more">Read the full problem <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </button>
+
+    <div class="connector"><svg width="24" height="34" viewBox="0 0 24 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v26M5 22l7 7 7-7"/></svg></div>
+
+    <button class="node thesis" data-key="thesis">
+      <span class="kicker"><span class="tag t-thesis">The thesis</span></span>
+      <h3>Feed the model cheap ground truth from robots and people — and federate it.</h3>
+      <p>Continuously adapt Prithvi using cheap, distributed, multi-source ground truth — from autonomous field robots and from human observations on the Every.Farm platform — federated across many farms, crops, and tasks so the model improves collectively without centralizing data.</p>
+      <span class="more">Read the full thesis <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </button>
+
+    <div class="connector"><svg width="24" height="34" viewBox="0 0 24 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v26M5 22l7 7 7-7"/></svg></div>
+
+    <button class="node testbed" data-key="testbed">
+      <span class="kicker"><span class="tag t-testbed">The testbed</span></span>
+      <h3>Three deliberately heterogeneous farms.</h3>
+      <p>A network spanning a broad range of crops and tasks — exactly the condition under which a foundation model's promised generality must be tested.</p>
+      <div class="farms">
+        <div class="farm"><div class="ico">🌱</div><div class="crop">Cover crops</div><h4>My farm</h4><p>10-acre polyculture field — the flagship designed experiment.</p></div>
+        <div class="farm"><div class="ico">🍇</div><div class="crop">Grapes</div><h4>CLEREL</h4><p>Cornell's Lake Erie Research &amp; Extension Lab.</p></div>
+        <div class="farm"><div class="ico">🍎</div><div class="crop">Apples</div><h4>Cornell AgriTech</h4><p>Orchard site for disease, nutrient &amp; yield tasks.</p></div>
+      </div>
+      <span class="more">Why this network <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </button>
+
+    <div class="connector"><svg width="24" height="34" viewBox="0 0 24 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v26M5 22l7 7 7-7"/></svg></div>
+
+    <!-- ENGINE -->
+    <p class="seclabel">The engine — three objectives</p>
+    <div class="engine">
+      <div class="engine-head">
+        <h2>Each objective feeds the next</h2>
+        <p>Get the right labels cheaply → pool what's learned across farms without sharing data → use the adapted model to do real agroecosystem science.</p>
+      </div>
+      <div class="objs">
+        <button class="obj obj-1" data-key="o1">
+          <div class="bar"></div>
+          <div class="body">
+            <span class="onum">1</span><span class="step">Get the labels</span>
+            <h3>Multi-source active ground-truthing</h3>
+            <p>An agent reads Prithvi's predictive uncertainty and dispatches the cheapest informative label — tasking a robot, or a human via Every.Farm mobile.</p>
+            <div class="hyp"><b>H1:</b> cost-aware, agent-directed labeling hits target accuracy with far fewer labels — and human + robot blended beats either alone per dollar.</div>
+            <span class="more">Methods &amp; detail <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </button>
+        <button class="obj obj-2" data-key="o2">
+          <div class="bar"></div>
+          <div class="body">
+            <span class="onum">2</span><span class="step">Pool the learning</span>
+            <h3>Federated multi-farm, multi-task fine-tuning</h3>
+            <p>Fine-tune Prithvi locally at each farm with parameter-efficient adapters; aggregate updates across the network — never the raw data.</p>
+            <div class="hyp"><b>H2:</b> federated multi-farm/multi-task tuning is more generalizable than single-site models, approaching pooled accuracy while keeping data local.</div>
+            <span class="more">Methods &amp; detail <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </button>
+        <button class="obj obj-3" data-key="o3">
+          <div class="bar"></div>
+          <div class="body">
+            <span class="onum">3</span><span class="step">Do the science</span>
+            <h3>Agroecosystem science &amp; transfer</h3>
+            <p>Flagship: test the stress gradient hypothesis in cover-crop polycultures via spectral diversity. Breadth: transfer to grape &amp; apple disease, nutrient, and yield.</p>
+            <div class="hyp"><b>H3:</b> facilitation rises with stress, yields a spectral-diversity signal scalable toward SBG, and the federated model transfers across crops better than baselines.</div>
+            <span class="more">Methods &amp; detail <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </button>
+      </div>
+      <div class="loopnote">
+        <span class="pill">↻ It's a loop</span>
+        <span>The science in O3 reveals where the model is still uncertain — which sends O1 back out to collect the next, smartest labels.</span>
+      </div>
+    </div>
+
+    <div class="connector"><svg width="24" height="34" viewBox="0 0 24 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v26M5 22l7 7 7-7"/></svg></div>
+
+    <button class="node payoff" data-key="payoff">
+      <span class="kicker"><span class="tag t-payoff">The payoff</span> <span style="font-size:.74rem;font-weight:700;color:var(--mute)">Why NASA, why now</span></span>
+      <h3>A working human-and-machine instance of New Observing Strategies — and a step toward agricultural Earth System Digital Twins.</h3>
+      <p>Centers on NASA's Prithvi and the Surface Biology &amp; Geology observable; advances Carbon Cycle &amp; Ecosystems biodiversity–function science; supports NASA Acres; and tackles the label-efficiency bottleneck at the heart of trustworthy Earth-observation AI.</p>
+      <span class="more">Read the NASA relevance <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </button>
+
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="block">
+    <h2 class="sec">Three years, three publications</h2>
+    <p class="lead">Each phase yields at least one publication, mapping directly onto the three objectives and their hypotheses.</p>
+    <div class="timeline">
+      <div class="yr">
+        <span class="ytag">Year 1 · Stand it up</span>
+        <h3>Pipeline + active learning</h3>
+        <p>Stand up the multi-source ground-truth pipeline (robots + human mobile) on Every.Farm; fine-tune Prithvi baselines; build and test the cost-aware active-learning agent; establish cover-crop replicate plots with variable-rate seeding.</p>
+        <div class="pub"><b>Pub 1:</b> Cost-aware, multi-source active ground-truthing for foundation-model adaptation</div>
+        <span class="htag">Tests H1</span>
+      </div>
+      <div class="yr">
+        <span class="ytag">Year 2 · Federate</span>
+        <h3>Multi-farm, multi-task tuning</h3>
+        <p>Deploy federated fine-tuning of Prithvi across all three sites and crops; benchmark against single-site, single-task, and centrally-pooled models; characterize robustness to cross-site (non-IID) heterogeneity.</p>
+        <div class="pub"><b>Pub 2:</b> Federated multi-farm/multi-task adaptation of a geospatial foundation model</div>
+        <span class="htag">Tests H2</span>
+      </div>
+      <div class="yr">
+        <span class="ytag">Year 3 · Discover</span>
+        <h3>Science + scale to satellite</h3>
+        <p>Apply adapted models to agroecosystem science: flagship SGH test in polycultures via spectral diversity, plus transfer to grape/apple disease, nutrient, and yield; scale signals to satellite (HLS / SBG-class); release the open framework.</p>
+        <div class="pub"><b>Pub 3:</b> Biodiversity–function science and cross-task transfer from a federated geoFM</div>
+        <span class="htag">Tests H3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEASIBILITY ============ -->
+  <section class="block">
+    <h2 class="sec">Why this is feasible — what's already in hand</h2>
+    <p class="lead">This proposal builds on infrastructure, partnerships, and a farm network that already exist.</p>
+    <div class="feas">
+      <div class="feasitem"><div class="ck">✓</div><div><h4>A multi-source labeling platform</h4><p>Every.Farm — built with Cornell AgriTech — already collects human (mobile) and sensor data, with the orchestration, geolocation, and provenance backbone.</p></div></div>
+      <div class="feasitem"><div class="ck">✓</div><div><h4>Field robots, operating now</h4><p>Our lab currently runs several autonomous robotic data-collection units at CLEREL and Cornell AgriTech (Geneva). The embodied sensing channel is established, not hypothetical.</p></div></div>
+      <div class="feasitem"><div class="ck">✓</div><div><h4>Heterogeneous, multi-crop access</h4><p>Established collaborations provide three farms spanning polycultures, grapes, and apples — plus my 10-acre field for the designed polyculture experiment.</p></div></div>
+      <div class="feasitem"><div class="ck">✓</div><div><h4>Experimental throughput</h4><p>Year-1 acquisition of a tractor, roll-crimper, and no-till drill with variable-rate seed hoppers enables hundreds of designed replicate plots.</p></div></div>
+      <div class="feasitem"><div class="ck">✓</div><div><h4>Open methods &amp; models</h4><p>Prithvi and HLS are open; parameter-efficient and federated fine-tuning of geoFMs are demonstrated in the 2025 literature; spectral diversity as a biodiversity proxy is established across biomes.</p></div></div>
+      <div class="feasitem"><div class="ck">✓</div><div><h4>Regional precedent</h4><p>Strong regional track record for specialty-crop disease sensing with NASA imagery (e.g., Gold Lab, Cornell AgriTech).</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCES ============ -->
+  <section class="block">
+    <details class="refs">
+      <summary><svg class="tw" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> Key references <span style="font-weight:500;color:var(--mute)">(selected starting set — to be expanded &amp; verified)</span></summary>
+      <ol>
+        <li>Jakubik, J., et al. (2023). Foundation Models for Generalist Geospatial Artificial Intelligence (Prithvi). arXiv:2310.18660.</li>
+        <li>Prithvi-EO-2.0 (2024). A Versatile Multi-Temporal Foundation Model for Earth Observation Applications. arXiv:2412.02732.</li>
+        <li>Parameter-Efficient Fine-Tuning for Geospatial Foundation Models (2025). arXiv:2504.17397.</li>
+        <li>Federated fine-tuning of vision / remote-sensing foundation models (2025). Privacy-preserving and uncertainty-weighted federated approaches for Earth-observation tasks.</li>
+        <li>Wang, R., et al. (2022). Plant beta-diversity across biomes captured by imaging spectroscopy. Nature Communications, 13, 2839.</li>
+        <li>Cawse-Nicholson, K., et al. (2021). NASA's Surface Biology and Geology designated observable. Remote Sensing of Environment, 257, 112349.</li>
+        <li>Brooker, R.W., et al. (2021). Facilitation and biodiversity–ecosystem function relationships in crop production systems. Journal of Ecology, 109(5), 2054–2067.</li>
+        <li>Bertness, M.D., Callaway, R. (1994). Positive interactions in communities. Trends in Ecology &amp; Evolution, 9(5), 191–193.</li>
+        <li>Li, C., et al. (2023). Intercrop overyielding weakened by high inputs: a global meta-analysis. Agriculture, Ecosystems &amp; Environment, 343.</li>
+        <li>Gold, K.M., et al. (2020). Hyperspectral measurements enable pre-symptomatic detection and differentiation of plant disease. Remote Sensing, 12, 286.</li>
+        <li>Le Moigne, J., et al. (2022). AIST: Combining New Observing Strategies and Analytics Frameworks to Build Earth System Digital Twins. IGARSS 2022 (IEEE).</li>
+        <li>Reichstein, M., et al. (2019). Deep learning and process understanding for data-driven Earth system science. Nature, 566, 195–204.</li>
+        <li>Spatially explicit active learning for crop-type mapping from satellite image time series (2024). PMC11014375.</li>
+      </ol>
+    </details>
+  </section>
+
+  <footer>
+    Draft for advisor review · Prepared by Nick Gunner · <a href="/">nicholasgunner.com</a><br>
+    <span style="color:var(--mute)">NASA FINESST (ROSES F.5) — Earth Science Division · Carbon Cycle &amp; Ecosystems</span>
+  </footer>
+</div>
+
+<!-- ============ DRAWER ============ -->
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+  <div class="drawer-head">
+    <span class="dtag" id="drawer-tag"></span>
+    <h2 id="drawer-title"></h2>
+    <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+</aside>
+
+<script>
+(function(){
+  var C = {
+    problem: {
+      tag:"The bottleneck", color:"var(--nasa-red)",
+      title:"Foundation models are generic. Farms are not.",
+      html:
+        "<p>Geospatial foundation models (geoFMs) are reshaping how we extract information from satellite imagery. NASA–IBM's <b>Prithvi</b>, pre-trained on more than a terabyte of Harmonized Landsat–Sentinel-2 (HLS) data, produces transferable representations of land and vegetation, and can be fine-tuned for downstream tasks with far fewer labels than training from scratch.</p>"+
+        "<p>Yet a foundation model is, by design, <b>generic</b>. The decisive challenge for agricultural remote sensing is <b>adaptation</b>: working farms are extraordinarily heterogeneous in crop, management, soil, and phenology.</p>"+
+        "<h4>The bottleneck</h4>"+
+        "<p>The labeled ground truth needed to specialize a geoFM to working farms is <b>scarce, expensive, and rarely shared</b> across operations.</p>"+
+        "<p>The result is a field of one-off, single-site models that do not generalize — and a foundation model whose agricultural potential is largely untapped. This is exactly where remote sensing for agriculture stalls, and exactly what this proposal attacks.</p>"
+    },
+    thesis: {
+      tag:"The thesis", color:"var(--nasa)",
+      title:"Feed the model cheap ground truth from robots and people — and federate it.",
+      html:
+        "<p>I will establish and scientifically evaluate workflows for <b>continuously adapting Prithvi to working farms</b> using cheap, distributed, multi-source ground truth, federated across many farms, crops, and tasks.</p>"+
+        "<h4>A human-and-machine sensor web</h4>"+
+        "<p>Ground truth is collected two complementary ways:</p>"+
+        "<ul>"+
+        "<li><b>Autonomous field robots</b> already operating in our lab — dense, repeatable proximal spectral, multispectral, and canopy-structure sampling.</li>"+
+        "<li><b>Human observers</b> using mobile devices on the <b>Every.Farm</b> platform — disease scouting, nutrient-deficiency ratings, phenology, cover assessment.</li>"+
+        "</ul>"+
+        "<h4>Driven by the model's own uncertainty</h4>"+
+        "<p>An agent decides which observations to collect, and by which means, driven by the geoFM's own predictive uncertainty — an instance of NASA's <b>New Observing Strategies</b>.</p>"+
+        "<h4>Federated, so the network learns together</h4>"+
+        "<p>Local data fine-tune Prithvi at each farm, and only model updates — <b>never raw imagery or private farm data</b> — are aggregated across the network through federated learning.</p>"+
+        "<div class='nasa-tie'><span class='flag'>🛰️</span><div>Remote sensing and the geoFM are the <b>backbone</b>; robots and people are simply two ways to feed it.</div></div>"
+    },
+    testbed: {
+      tag:"The testbed", color:"#7c5cc4",
+      title:"Three deliberately heterogeneous farms",
+      html:
+        "<p>Three farms in the New York–Lake Erie region span a deliberately broad range of crops and tasks:</p>"+
+        "<ul>"+
+        "<li>🌱 <b>My farm</b> — cover-crop polycultures (the 10-acre field that hosts the flagship designed experiment).</li>"+
+        "<li>🍇 <b>CLEREL</b> — Cornell's Lake Erie Research &amp; Extension Laboratory, working in grapes.</li>"+
+        "<li>🍎 <b>Cornell AgriTech</b> — an apple site.</li>"+
+        "</ul>"+
+        "<p>Across them, the system targets tasks from <b>cover-crop composition and biomass</b> to <b>disease detection, nutrient-deficiency mapping, and yield estimation</b>.</p>"+
+        "<h4>Why heterogeneity is the point</h4>"+
+        "<p>This diversity is not incidental — it is precisely the condition under which a foundation model's promised generality must be tested. It makes the federated, multi-task adaptation question both rigorous and broadly useful.</p>"+
+        "<h4>Locally relevant drivers</h4>"+
+        "<p>Because water deficit is rarely limiting in this region, we focus on the locally relevant drivers: <b>nutrient availability, plant competition and density, canopy light, soil cover and health, and weed and disease pressure.</b></p>"
+    },
+    o1: {
+      tag:"Objective 1 · Get the labels", color:"var(--o1)",
+      title:"Multi-source active ground-truthing",
+      hyp:{lab:"Hypothesis H1", bg:"var(--o1-bg)", fg:"#8a4d12",
+        text:"Cost-aware, agent-directed multi-source ground-truthing attains target retrieval accuracy with <b>substantially fewer labels</b> than passive or systematic collection — and a <b>blend of human and robotic</b> observations outperforms either source alone per unit cost."},
+      html:
+        "<p>Develop and evaluate an agent that reads Prithvi's predictive uncertainty over satellite imagery and directs the most informative, lowest-cost ground-truth collection — dispatching an autonomous robot or issuing a structured observation task to a human via Every.Farm mobile, whichever is cheaper for the expected information gained.</p>"+
+        "<h4>Methods</h4>"+
+        "<ul>"+
+        "<li>A fine-tuned Prithvi produces predictions and <b>calibrated uncertainty</b> (Monte-Carlo dropout, deep ensembles, or evidential heads) over candidate locations.</li>"+
+        "<li>An <b>acquisition function</b> combines expected information gain with the cost of each labeling modality (robot deployment vs. a human mobile task) to select what to observe and how.</li>"+
+        "<li>New labels retrain the model and the loop iterates.</li>"+
+        "<li>Benchmark against random, systematic, and single-modality sampling using <b>labels- and cost-to-accuracy curves</b>.</li>"+
+        "<li>Quantify complementarity: humans excel at fine disease scouting; robots at dense, repeatable spectral / structural sampling.</li>"+
+        "</ul>"+
+        "<div class='nasa-tie'><span class='flag'>🛰️</span><div>A working instantiation of NASA's <b>New Observing Strategies (NOS)</b> — sensing tasked dynamically by model uncertainty.</div></div>"
+    },
+    o2: {
+      tag:"Objective 2 · Pool the learning", color:"var(--o2)",
+      title:"Federated multi-farm, multi-task fine-tuning",
+      hyp:{lab:"Hypothesis H2", bg:"var(--o2-bg)", fg:"#0a5b54",
+        text:"Federated multi-farm / multi-task fine-tuning produces a <b>more generalizable</b> agricultural foundation model than any single-site or single-task model — approaching the accuracy of a centrally-pooled model while preserving data locality and staying robust to cross-site heterogeneity."},
+      html:
+        "<p>Develop and evaluate federated fine-tuning of Prithvi across the farm network and across tasks (cover-crop composition, grape and apple disease, nutrient deficiency, yield), using parameter-efficient adapters so that only small weight updates — not raw imagery or farm data — are shared.</p>"+
+        "<h4>Methods</h4>"+
+        "<ul>"+
+        "<li>Each site fine-tunes Prithvi locally with <b>parameter-efficient adapters (e.g., LoRA)</b> and lightweight task heads.</li>"+
+        "<li>A coordinating server aggregates adapters (<b>FedAvg</b> and uncertainty-weighted variants) into an improved global model that is redistributed.</li>"+
+        "<li>Evaluate <b>leave-one-site-out</b> and <b>leave-one-crop-out</b> generalization against single-site, single-task, and centrally-pooled baselines.</li>"+
+        "<li>Quantify communication and compute cost; test robustness to non-IID heterogeneity across crops and management.</li>"+
+        "</ul>"+
+        "<div class='nasa-tie'><span class='flag'>🛰️</span><div>Realizes, on real farms, the distributed and continuously-updated model envisioned by NASA's <b>Earth System Digital Twin</b> program (ESTO / AIST) — a collective-intelligence approach.</div></div>"
+    },
+    o3: {
+      tag:"Objective 3 · Do the science", color:"var(--o3)",
+      title:"Agroecosystem science &amp; cross-task transfer",
+      hyp:{lab:"Hypothesis H3", bg:"var(--o3-bg)", fg:"#2c6437",
+        text:"Facilitation and overyielding <b>increase with stress</b> (the stress gradient hypothesis) and yield a <b>spectral-diversity signal scalable via Prithvi toward SBG-class observation</b> — and the federated model transfers across crops and tasks better than single-task baselines."},
+      html:
+        "<p>Apply the adapted models to advance science and demonstrate generality. The adapted models are not an end in themselves; they <b>enable agroecosystem science</b>.</p>"+
+        "<h4>Flagship — the stress gradient hypothesis</h4>"+
+        "<p>The stress gradient hypothesis (SGH) predicts that facilitation outweighs competition as stress rises. Across variable-rate cover-crop replicates, we quantify how facilitation versus competition (overyielding, canopy nitrogen, fractional cover, weed suppression) varies along engineered stress gradients — and whether spectral and structural diversity track these biodiversity–function relationships from robot to satellite.</p>"+
+        "<h4>Methods</h4>"+
+        "<ul>"+
+        "<li>A no-till drill retrofitted with <b>variable-rate seed hoppers</b> creates a factorial of diversity (monocultures vs. multi-species mixtures), seeding density (competition intensity), and an engineered soil-fertility stress gradient — replicated and terminated with a roll-crimper for regenerative, no-till management.</li>"+
+        "<li>Overyielding quantified with the <b>Land Equivalent Ratio</b> and <b>Relative Yield Total</b>; facilitation and competition separated via additive and replacement comparisons.</li>"+
+        "<li>Related to <b>spectral-diversity metrics</b> (spectral variance, convex-hull volume, spectral-species richness) from robot spectra, Prithvi embeddings, and HLS — tested across resolutions (robot → ~3 m → 30 m).</li>"+
+        "<li><b>Breadth:</b> transfer the federated model to grape and apple disease, nutrient-deficiency, and yield tasks, quantified against single-task baselines.</li>"+
+        "<li>Inference via <b>Bayesian hierarchical</b> and <b>structural-equation</b> models linking diversity, stress, traits, and function.</li>"+
+        "</ul>"+
+        "<div class='nasa-tie'><span class='flag'>🛰️</span><div>Advances <b>Carbon Cycle &amp; Ecosystems</b> biodiversity–function science and feeds directly toward NASA's <b>Surface Biology and Geology (SBG)</b> mission.</div></div>"
+    },
+    payoff: {
+      tag:"The payoff · Why NASA, why now", color:"var(--nasa)",
+      title:"Relevance to NASA",
+      html:
+        "<p>This work places a NASA geospatial foundation model (<b>Prithvi</b>) and the <b>Surface Biology and Geology</b> observable at its center, and develops the adaptation workflows needed to turn them into operational agricultural value.</p>"+
+        "<ul>"+
+        "<li>A working, <b>human-and-machine instantiation of New Observing Strategies</b>.</li>"+
+        "<li>A concrete building block toward <b>agricultural Earth System Digital Twins</b> — both Earth Science Technology Office (AIST) priorities.</li>"+
+        "<li>Advances <b>Carbon Cycle &amp; Ecosystems</b> biodiversity–function science.</li>"+
+        "<li>Supports the <b>NASA Acres</b> mission to strengthen U.S. agriculture.</li>"+
+        "<li>Incorporates <b>citizen-science methodologies</b> through Every.Farm.</li>"+
+        "<li>Directly addresses the <b>label-efficiency bottleneck</b> central to trustworthy Earth-observation AI.</li>"+
+        "</ul>"+
+        "<p>The resulting framework is transferable across crops and regions, maximizing science and applications return from <b>HLS, SBG, and NISAR-era observations</b>.</p>"+
+        "<h4>Why this Future Investigator</h4>"+
+        "<p>Via Orbitist / Every.Farm and our lab's robots, I control the geoFM stack, a multi-source labeling platform, and a real multi-crop farm network — the rare combination needed to actually adapt Earth's foundation models to working farms.</p>"
+    }
+  };
+
+  var drawer=document.getElementById('drawer');
+  var backdrop=document.getElementById('backdrop');
+  var body=document.getElementById('drawer-body');
+  var titleEl=document.getElementById('drawer-title');
+  var tagEl=document.getElementById('drawer-tag');
+  var lastFocus=null;
+
+  function open(key){
+    var d=C[key]; if(!d) return;
+    lastFocus=document.activeElement;
+    tagEl.textContent=d.tag;
+    tagEl.style.background=d.color;
+    titleEl.innerHTML=d.title;
+    var html="";
+    if(d.hyp){
+      html+="<div class='hbox' style='background:"+d.hyp.bg+";color:"+d.hyp.fg+"'>"+
+            "<span class='hlab'>"+d.hyp.lab+"</span>"+d.hyp.text+"</div>";
+    }
+    html+=d.html;
+    body.innerHTML=html;
+    body.scrollTop=0;
+    backdrop.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+    document.getElementById('drawer-close').focus();
+  }
+  function close(){
+    backdrop.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+    if(lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('[data-key]').forEach(function(el){
+    el.addEventListener('click',function(){ open(el.getAttribute('data-key')); });
+  });
+  document.getElementById('drawer-close').addEventListener('click',close);
+  backdrop.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>
