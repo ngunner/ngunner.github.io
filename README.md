@@ -51,3 +51,22 @@ date: 2025-03-15
 ---
 Your content in **Markdown**...
 ```
+
+## Adding media / press coverage
+
+Append an entry to `_data/media.json`. It renders in the "In the media"
+section on the homepage, sorted newest first automatically — so you can add
+new entries anywhere in the list.
+
+```json
+{
+  "title": "Headline of the article",
+  "outlet": "Publication name",
+  "url": "https://example.com/article",
+  "date": "2026-08-31",
+  "note": "Optional one-line description. Omit this field to leave it out."
+}
+```
+
+Only `title`, `outlet`, `url`, and `date` are required. Use `YYYY-MM-DD` for
+the date. Links open in a new tab.

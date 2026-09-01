@@ -9,6 +9,17 @@ module.exports = function (eleventyConfig) {
     return d.toISOString().slice(0, 10);
   });
 
+  // "2026-08-31" -> "August 31, 2026" (UTC so the day never shifts)
+  eleventyConfig.addFilter("readableDate", function (dateObj) {
+    const d = dateObj instanceof Date ? dateObj : new Date(dateObj);
+    return d.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+  });
+
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("posts/*.md").sort((a, b) => b.date - a.date);
   });

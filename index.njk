@@ -14,3 +14,17 @@ title: Home
   </li>
   {% endfor %}
 </ul>
+
+<h2>In the media</h2>
+<ul class="media-list">
+  {% for item in media | sort(true, false, 'date') %}
+  <li>
+    <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>
+    <div class="media-meta">
+      <span class="outlet">{{ item.outlet }}</span> ·
+      <time datetime="{{ item.date }}">{{ item.date | readableDate }}</time>
+    </div>
+    {% if item.note %}<p class="media-note">{{ item.note }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
