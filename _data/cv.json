@@ -1,0 +1,128 @@
+{
+  "name": "Nicholas Gunner",
+  "tagline": "Ph.D. student, Cyber Agricultural Intelligence and Robotics Lab, Cornell University · Founder, Orbitist LLC",
+  "highlight": "Gunner",
+  "updated": "2026-09-29",
+  "links": [
+    { "label": "Orbitist", "url": "https://orbitist.com" },
+    { "label": "Every.Farm", "url": "https://every.farm/" },
+    { "label": "Gunner Gardens", "url": "https://gunnergardens.com/" }
+  ],
+  "sections": [
+    {
+      "id": "education",
+      "title": "Education",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Ph.D. student",
+          "org": "Cyber Agricultural Intelligence and Robotics (CAIR) Lab, Cornell University",
+          "location": "Cornell AgriTech, Geneva, NY",
+          "when": "2024 – present",
+          "details": [
+            "Advisor: Dr. Yu Jiang",
+            "Farm decision support systems that combine ground- and space-based sensing with AI, with a focus on crop diversification and polyculture",
+            "Supported by NASA Acres"
+          ]
+        },
+        {
+          "title": "Bachelor's degree, Communications and Earth Science",
+          "when": "2011"
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "Experience",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Founder",
+          "org": "Orbitist LLC",
+          "url": "https://orbitist.com",
+          "when": "2015 – present",
+          "details": [
+            "Researches, develops, and deploys spatial software and mapping tools for agriculture",
+            "Built My Efficient Vineyard (myEV) with Cornell's Lake Erie Research & Extension Laboratory beginning in 2016 — an open mapping platform for growers and researchers, since rebranded as Every.Farm"
+          ]
+        },
+        {
+          "title": "Co-owner",
+          "org": "Gunner Gardens",
+          "url": "https://gunnergardens.com/",
+          "when": "2022 – present",
+          "details": [
+            "Family-run small U-pick farm growing flowers and grapes; also serves as a test-plot facility for agricultural experimentation"
+          ]
+        },
+        {
+          "title": "Freelance video producer",
+          "org": "Roger Tory Peterson Institute of Natural History",
+          "when": "from 2015"
+        }
+      ]
+    },
+    {
+      "id": "interests",
+      "title": "Research interests",
+      "type": "list",
+      "items": [
+        "Farm decision support systems",
+        "Satellite and ground-based remote sensing",
+        "AI and machine learning for agriculture",
+        "Crop diversification and polyculture",
+        "Digital agriculture tools and open data platforms"
+      ]
+    },
+    {
+      "id": "funding",
+      "title": "Grants & fellowships",
+      "type": "entries",
+      "items": [
+        {
+          "title": "NASA Acres — Ph.D. funding",
+          "org": "NASA Acres consortium",
+          "url": "https://www.nasaacres.org/",
+          "when": "2024 – present"
+        }
+      ]
+    },
+    { "id": "publications", "title": "Publications", "type": "publications", "items": [] },
+    { "id": "talks", "title": "Talks & presentations", "type": "entries", "items": [] },
+    { "id": "awards", "title": "Awards & honors", "type": "entries", "items": [] },
+    {
+      "id": "software",
+      "title": "Software & platforms",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Every.Farm (formerly myEV)",
+          "url": "https://every.farm/",
+          "when": "2016 – present",
+          "details": ["Data collection and mapping platform for growers and researchers, developed with Cornell AgriTech"]
+        },
+        {
+          "title": "crops.every.farm",
+          "url": "https://crops.every.farm/",
+          "when": "",
+          "details": ["AI-assisted crop database"]
+        },
+        {
+          "title": "Recipe Route",
+          "url": "https://www.reciperoute.org/",
+          "when": "2025 – present",
+          "details": ["Generates recipes from locally sourced ingredients, connecting communities with nearby farms"]
+        },
+        {
+          "title": "TrailHUB",
+          "url": "https://trailhub.org",
+          "when": "",
+          "details": ["Trail communication and mapping platform for trail-system operators"]
+        }
+      ]
+    },
+    { "id": "teaching", "title": "Teaching & mentoring", "type": "entries", "items": [] },
+    { "id": "service", "title": "Service", "type": "entries", "items": [] },
+    { "id": "media", "title": "Media coverage", "type": "media" }
+  ]
+}

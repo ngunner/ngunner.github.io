@@ -20,6 +20,21 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // Bold the CV owner's name in an author string. Matches "N. Gunner",
+  // "Nicholas Gunner", "Gunner, N." or bare "Gunner" — never both leading and
+  // trailing initials, so a following author's initial isn't swallowed.
+  eleventyConfig.addFilter("highlightAuthor", function (authors, surname) {
+    if (!authors || !surname) return authors || "";
+    const esc = surname.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(
+      "((?:(?:[A-Z]\\.\\s*)+|[A-Z][a-z]+\\s+)" + esc + "\\b" +
+      "|\\b" + esc + "(?:,\\s*[A-Z]\\.)+" +
+      "|\\b" + esc + "\\b)",
+      "g"
+    );
+    return String(authors).replace(re, "<strong>$1</strong>");
+  });
+
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("posts/*.md").sort((a, b) => b.date - a.date);
   });

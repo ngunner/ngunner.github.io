@@ -1,0 +1,60 @@
+---
+layout: layout.njk
+title: CV
+permalink: /cv/
+---
+
+<div class="cv">
+  <div class="cv-head">
+    <h2>{{ cv.name }}</h2>
+    {% if cv.tagline %}<p class="tagline">{{ cv.tagline }}</p>{% endif %}
+    {% if cv.links %}
+    <ul class="cv-links">
+      {% for l in cv.links %}<li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+    <p class="cv-updated">Last updated {{ cv.updated | readableDate }} · <button type="button" class="cv-print" onclick="window.print()">Print / save as PDF</button></p>
+  </div>
+
+  {% for s in cv.sections %}
+  {% if s.type == "media" or (s.items and s.items.length) %}
+  <section class="cv-section" id="{{ s.id }}">
+    <h3>{{ s.title }}</h3>
+
+    {% if s.type == "publications" %}
+    <ol class="cv-pubs">
+      {% for p in s.items %}
+      <li>{{ p.authors | highlightAuthor(cv.highlight) | safe }} ({{ p.year }}). {% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}.{% if p.venue %} <span class="venue">{{ p.venue }}</span>.{% endif %}{% if p.status %} <em>({{ p.status }})</em>{% endif %}{% if p.note %} — {{ p.note }}{% endif %}</li>
+      {% endfor %}
+    </ol>
+
+    {% elif s.type == "list" %}
+    <ul class="cv-list">
+      {% for i in s.items %}<li>{{ i }}</li>{% endfor %}
+    </ul>
+
+    {% elif s.type == "media" %}
+    <ul class="cv-pubs">
+      {% for m in media | sort(true, false, 'date') %}
+      <li><a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.title }}</a>. <span class="venue">{{ m.outlet }}</span>, {{ m.date | readableDate }}.</li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+    {% for e in s.items %}
+    <div class="cv-entry">
+      <div class="cv-when">{{ e.when }}</div>
+      <div>
+        <p class="cv-title">{% if e.url %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title }}</a>{% else %}{{ e.title }}{% endif %}</p>
+        {% if e.org or e.location %}<p class="cv-org">{{ e.org }}{% if e.org and e.location %} · {% endif %}{{ e.location }}</p>{% endif %}
+        {% if e.details %}<ul>{% for d in e.details %}<li>{{ d | safe }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% if s.note %}<p class="cv-note">{{ s.note }}</p>{% endif %}
+  </section>
+  {% endif %}
+  {% endfor %}
+</div>

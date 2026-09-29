@@ -70,3 +70,27 @@ new entries anywhere in the list.
 
 Only `title`, `outlet`, `url`, and `date` are required. Use `YYYY-MM-DD` for
 the date. Links open in a new tab.
+
+## Maintaining the CV
+
+The CV at `/cv/` is rendered by `cv.njk` from `_data/cv.json`. To update it,
+edit the JSON (or drop the new information in a Claude Code session and ask for
+it to be added) and bump `updated`.
+
+- **Section order** = order in the `sections` array. Empty sections are not
+  rendered, so unused ones can stay in the file ready to fill.
+- **Item order** within a section is as written — keep newest first.
+- `highlight` is the surname to bold in publication author lists.
+
+Section `type`s and their item shape:
+
+| type           | item fields                                                          |
+|----------------|----------------------------------------------------------------------|
+| `entries`      | `title`, `org`, `location`, `when`, `url`, `details` (list of lines) |
+| `publications` | `authors`, `year`, `title`, `venue`, `url`, `status`, `note`         |
+| `list`         | plain strings                                                        |
+| `media`        | no items — pulls from `_data/media.json` automatically               |
+
+Only `title` (entries) / `authors`, `year`, `title` (publications) are needed;
+everything else is optional. `details` lines may contain inline HTML. The page
+has print styles, so "Print / save as PDF" in the browser yields a clean PDF.

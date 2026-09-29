@@ -8,7 +8,9 @@
     body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 42rem; margin: 0 auto; padding: 1.5rem; color: #1a1a1a; }
     a { color: #0066cc; }
     a:hover { text-decoration: underline; }
-    header { margin-bottom: 2rem; }
+    header { margin-bottom: 2rem; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+    header nav a { font-size: 0.9rem; color: #666; text-decoration: none; }
+    header nav a:hover { color: #0066cc; text-decoration: underline; }
     h1 { font-size: 1.25rem; font-weight: 600; margin: 0; }
     .post-list { list-style: none; padding: 0; margin: 0; }
     .post-list li { margin-bottom: 0.75rem; }
@@ -22,11 +24,43 @@
     .media-meta { color: #666; font-size: 0.9rem; margin-top: 0.15rem; }
     .media-meta .outlet { font-weight: 600; color: #444; }
     .media-note { margin: 0.35rem 0 0; color: #444; font-size: 0.95rem; }
+    /* CV */
+    .cv-head h2 { font-size: 1.6rem; font-weight: 650; margin: 0; }
+    .cv-head .tagline { color: #444; margin: 0.25rem 0 0; }
+    .cv-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; list-style: none; padding: 0; margin: 0.6rem 0 0; font-size: 0.92rem; }
+    .cv-updated { color: #666; font-size: 0.85rem; margin: 0.5rem 0 0; }
+    .cv-print { background: none; border: none; padding: 0; font: inherit; color: #0066cc; cursor: pointer; }
+    .cv-print:hover { text-decoration: underline; }
+    .cv-section { margin-top: 2rem; }
+    .cv-section h3 { font-size: 0.95rem; font-weight: 650; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.3rem; margin: 0 0 0.9rem; }
+    .cv-entry { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0 1rem; margin-bottom: 1rem; }
+    .cv-when { color: #666; font-size: 0.9rem; padding-top: 0.1rem; }
+    .cv-entry .cv-title { font-weight: 600; margin: 0; }
+    .cv-entry .cv-org { color: #444; margin: 0; }
+    .cv-entry ul { margin: 0.3rem 0 0; padding-left: 1.1rem; color: #333; font-size: 0.95rem; }
+    .cv-pubs { list-style: none; padding: 0; margin: 0; }
+    .cv-pubs li { margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .cv-pubs .venue { font-style: italic; }
+    .cv-list { columns: 2; column-gap: 2rem; padding-left: 1.1rem; margin: 0; font-size: 0.95rem; }
+    .cv-note { color: #666; font-size: 0.9rem; margin: 0.5rem 0 0; }
+    @media (max-width: 600px) {
+      .cv-entry { grid-template-columns: 1fr; }
+      .cv-when { margin-bottom: 0.15rem; }
+      .cv-list { columns: 1; }
+    }
+    @media print {
+      header nav, .cv-print { display: none; }
+      body { max-width: none; padding: 0; font-size: 11pt; color: #000; }
+      a { color: #000; text-decoration: none; }
+      .cv-section { margin-top: 1.2rem; }
+      .cv-entry, .cv-pubs li { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1><a href="/">{{ site.name }}</a></h1>
+    <nav><a href="/cv/">CV</a></nav>
   </header>
   <main>
     {% if date %}
