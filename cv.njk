@@ -8,6 +8,7 @@ permalink: /cv/
   <div class="cv-head">
     <h2>{{ cv.name }}</h2>
     {% if cv.tagline %}<p class="tagline">{{ cv.tagline }}</p>{% endif %}
+    {% if cv.location or cv.email %}<p class="cv-contact">{{ cv.location }}{% if cv.location and cv.email %} · {% endif %}{% if cv.email %}<a href="mailto:{{ cv.email }}">{{ cv.email }}</a>{% endif %}</p>{% endif %}
     {% if cv.links %}
     <ul class="cv-links">
       {% for l in cv.links %}<li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a></li>{% endfor %}

@@ -1,12 +1,27 @@
 {
   "name": "Nicholas Gunner",
-  "tagline": "Ph.D. student, Cyber Agricultural Intelligence and Robotics Lab, Cornell University · Founder, Orbitist LLC",
+  "tagline": "Specialty-crop farmer and agricultural technologist. Owner/operator of Gunner Gardens, a diversified U-pick flower, fruit, and honey farm; PhD researcher in agricultural AI and robotics at Cornell AgriTech; and lead developer of the Every.Farm (formerly My Efficient Vineyard) precision-agriculture platform.",
+  "location": "Holland, NY",
+  "email": "ngunner@orbitist.com",
   "highlight": "Gunner",
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "links": [
-    { "label": "Orbitist", "url": "https://orbitist.com" },
-    { "label": "Every.Farm", "url": "https://every.farm/" },
-    { "label": "Gunner Gardens", "url": "https://gunnergardens.com/" }
+    {
+      "label": "ORCID 0009-0005-5911-2124",
+      "url": "https://orcid.org/0009-0005-5911-2124"
+    },
+    {
+      "label": "Orbitist",
+      "url": "https://orbitist.com"
+    },
+    {
+      "label": "Every.Farm",
+      "url": "https://every.farm/"
+    },
+    {
+      "label": "Gunner Gardens",
+      "url": "https://gunnergardens.com/"
+    }
   ],
   "sections": [
     {
@@ -15,19 +30,29 @@
       "type": "entries",
       "items": [
         {
-          "title": "Ph.D. student",
-          "org": "Cyber Agricultural Intelligence and Robotics (CAIR) Lab, Cornell University",
+          "title": "Ph.D. (in progress), School of Integrative Plant Science",
+          "org": "Cornell University",
           "location": "Cornell AgriTech, Geneva, NY",
-          "when": "2024 – present",
+          "when": "Jan 2024 – present",
           "details": [
-            "Advisor: Dr. Yu Jiang",
-            "Farm decision support systems that combine ground- and space-based sensing with AI, with a focus on crop diversification and polyculture",
+            "Cyber-Agricultural Intelligence and Robotics (CAIR) Laboratory",
+            "Committee: Dr. Yu Jiang (advisor), Dr. Terry Bates, Dr. Katie Gold",
+            "AI, sensing, satellite data, and robotics applied to specialty-crop production and decision support",
             "Supported by NASA Acres"
           ]
         },
         {
-          "title": "Bachelor's degree, Communications and Earth Science",
-          "when": "2011"
+          "title": "B.S. Communication",
+          "org": "State University of New York at Fredonia",
+          "when": "2007 – 2011",
+          "details": [
+            "Concentrations: digital film, audio/radio production, earth science"
+          ]
+        },
+        {
+          "title": "Semester abroad — European history, culture & international relations",
+          "org": "American University in Bulgaria",
+          "when": "Fall 2008"
         }
       ]
     },
@@ -37,28 +62,178 @@
       "type": "entries",
       "items": [
         {
-          "title": "Founder",
-          "org": "Orbitist LLC",
-          "url": "https://orbitist.com",
-          "when": "2015 – present",
+          "title": "Owner / Farm Operator",
+          "org": "Gunner Gardens (Orbitist LLC)",
+          "location": "Holland, NY",
+          "url": "https://gunnergardens.com/",
+          "when": "2021 – present",
           "details": [
-            "Researches, develops, and deploys spatial software and mapping tools for agriculture",
-            "Built My Efficient Vineyard (myEV) with Cornell's Lake Erie Research & Extension Laboratory beginning in 2016 — an open mapping platform for growers and researchers, since rebranded as Every.Farm"
+            "Founded and operate a 24-acre diversified specialty-crop and agritourism farm: U-cut/U-pick cut flowers, grapes, raspberries, and honeybees",
+            "Children's outdoor education program serving ~60 students per season",
+            "Lead production planning, sales and marketing, finances, and an on-farm precision-agriculture program",
+            "Transitioning the operation to no-till, cover-cropped regenerative production"
           ]
         },
         {
-          "title": "Co-owner",
-          "org": "Gunner Gardens",
-          "url": "https://gunnergardens.com/",
-          "when": "2022 – present",
+          "title": "Ph.D. Student / Graduate Researcher",
+          "org": "Cornell University — Cornell AgriTech, CAIR Lab",
+          "location": "Geneva, NY",
+          "when": "Jan 2024 – present"
+        },
+        {
+          "title": "Lead Software Developer",
+          "org": "Cornell Lake Erie Research & Extension Laboratory (CLEREL)",
+          "location": "Portland, NY",
+          "when": "May 2018 – present",
           "details": [
-            "Family-run small U-pick farm growing flowers and grapes; also serves as a test-plot facility for agricultural experimentation"
+            "Lead full-stack developer of \"My Efficient Vineyard\" (myEV) — rebranded Every.Farm in 2026 — a cloud-based GIS delivering precision-viticulture and spatial-analysis tools to grape growers across major growing regions worldwide",
+            "Continually expanding the platform's data-science capabilities and user base"
+          ]
+        },
+        {
+          "title": "Founder / Co-owner",
+          "org": "Orbitist LLC",
+          "url": "https://orbitist.com",
+          "when": "Jan 2015 – present",
+          "details": [
+            "Founded a geospatial software company that grew from web development and multimedia production into cloud-based GIS and data-science tools for agriculture",
+            "Serve government, non-profit, and business clients; maintain a portfolio of mapping products including trailhub.org and winegeographer.com",
+            "Co-owned 50/50 with Caitlin Gunner; the company houses the Gunner Gardens farm enterprise"
           ]
         },
         {
           "title": "Freelance video producer",
           "org": "Roger Tory Peterson Institute of Natural History",
-          "when": "from 2015"
+          "location": "Jamestown, NY",
+          "when": "2015 – present"
+        },
+        {
+          "title": "New Media Manager",
+          "org": "State University of New York at Fredonia",
+          "when": "Mar 2012 – Jun 2016",
+          "details": [
+            "Redeveloped the university's web presence (mobile-first); implemented content management systems",
+            "Led a team of student bloggers and a media manager; oversaw campus social media",
+            "Produced multimedia marketing including two regional TV campaigns"
+          ]
+        },
+        {
+          "title": "Founder, WNY.FM",
+          "org": "Regional multimedia magazine",
+          "when": "2010 – 2012",
+          "details": [
+            "Acquired by the Buffalo Music Hall of Fame, 2013",
+            "Editorial/production internships at NPR's <em>State of the Re:Union</em> and WNED Buffalo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "publications",
+      "title": "Publications",
+      "type": "publications",
+      "items": [
+        {
+          "authors": "Jin, D., Gunner, N., Carvajal Janke, N., Baruah, S., Gold, K. M., &amp; Jiang, Y.",
+          "year": 2025,
+          "title": "Aleks: AI powered multi-agent system for autonomous scientific discovery via data-driven approaches in plant science",
+          "venue": "arXiv:2508.19383",
+          "url": "https://arxiv.org/abs/2508.19383",
+          "status": "preprint"
+        }
+      ]
+    },
+    {
+      "id": "talks",
+      "title": "Talks & presentations",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Every.Farm and agent-based workflows in agriculture",
+          "org": "I-CIPS (Initiative for Computational Innovation in Plant Sciences) Retreat, Cornell University",
+          "location": "Ithaca, NY",
+          "when": "Aug 2026"
+        },
+        {
+          "title": "Panel discussion: public–private partnerships",
+          "org": "Pennsylvania State University",
+          "location": "University Park, PA",
+          "when": "2026"
+        },
+        {
+          "title": "Cloud-based GIS analysis",
+          "org": "Ecological Society of America (ESA) Annual Meeting",
+          "location": "Baltimore, MD",
+          "when": "Aug 2025"
+        },
+        {
+          "title": "Citizen science in agriculture (poster)",
+          "org": "Northeast Agricultural & Biological Engineering Conference (NABEC) 2025",
+          "location": "Ithaca, NY",
+          "when": "Aug 2025"
+        },
+        {
+          "title": "Presentation to the NASA agricultural listening tour",
+          "org": "Cornell Lake Erie Research & Extension Laboratory (CLEREL)",
+          "location": "Portland, NY",
+          "when": ""
+        }
+      ]
+    },
+    {
+      "id": "awards",
+      "title": "Awards & honors",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Nominee, Student Entrepreneur of the Year",
+          "org": "Cornell CALS Innovation Day",
+          "when": "2025"
+        },
+        {
+          "title": "Selected participant, BeetlePalooza 2024",
+          "org": "Imageomics Institute, The Ohio State University",
+          "location": "Columbus, OH",
+          "url": "https://imageomics.osu.edu/events/beetlepalooza-2024",
+          "when": "Aug 2024",
+          "details": [
+            "Invited AI/ML workshop applying computer vision to NEON beetle biodiversity data"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "funding",
+      "title": "Grants & fellowships",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Beck Entrepreneurship Fellow",
+          "org": "Entrepreneurship at Cornell",
+          "url": "https://eship.cornell.edu/item/beck-fellows/",
+          "when": "Summer 2025",
+          "details": [
+            "Summer fellowship awarded to develop Recipe Route"
+          ]
+        },
+        {
+          "title": "NASA Acres — Ph.D. funding",
+          "org": "NASA Acres consortium",
+          "url": "https://www.nasaacres.org/",
+          "when": "2024 – present"
+        }
+      ]
+    },
+    {
+      "id": "teaching",
+      "title": "Teaching & mentoring",
+      "type": "entries",
+      "items": [
+        {
+          "title": "Guest lecture, undergraduate viticulture course",
+          "org": "Cornell University",
+          "location": "Ithaca, NY",
+          "when": "Fall 2025"
         }
       ]
     },
@@ -75,22 +250,6 @@
       ]
     },
     {
-      "id": "funding",
-      "title": "Grants & fellowships",
-      "type": "entries",
-      "items": [
-        {
-          "title": "NASA Acres — Ph.D. funding",
-          "org": "NASA Acres consortium",
-          "url": "https://www.nasaacres.org/",
-          "when": "2024 – present"
-        }
-      ]
-    },
-    { "id": "publications", "title": "Publications", "type": "publications", "items": [] },
-    { "id": "talks", "title": "Talks & presentations", "type": "entries", "items": [] },
-    { "id": "awards", "title": "Awards & honors", "type": "entries", "items": [] },
-    {
       "id": "software",
       "title": "Software & platforms",
       "type": "entries",
@@ -98,31 +257,70 @@
         {
           "title": "Every.Farm (formerly myEV)",
           "url": "https://every.farm/",
-          "when": "2016 – present",
-          "details": ["Data collection and mapping platform for growers and researchers, developed with Cornell AgriTech"]
+          "when": "2018 – present",
+          "details": [
+            "Cloud-based GIS for data collection, mapping, and spatial analysis, developed with Cornell AgriTech and CLEREL"
+          ]
         },
         {
           "title": "crops.every.farm",
           "url": "https://crops.every.farm/",
           "when": "",
-          "details": ["AI-assisted crop database"]
+          "details": [
+            "AI-assisted crop database"
+          ]
         },
         {
           "title": "Recipe Route",
           "url": "https://www.reciperoute.org/",
           "when": "2025 – present",
-          "details": ["Generates recipes from locally sourced ingredients, connecting communities with nearby farms"]
+          "details": [
+            "Generates recipes from locally sourced ingredients, connecting communities with nearby farms"
+          ]
         },
         {
           "title": "TrailHUB",
           "url": "https://trailhub.org",
           "when": "",
-          "details": ["Trail communication and mapping platform for trail-system operators"]
+          "details": [
+            "Trail communication and mapping platform for trail-system operators"
+          ]
+        },
+        {
+          "title": "Wine Geographer",
+          "url": "https://winegeographer.com",
+          "when": "",
+          "details": [
+            "Mapping product for the wine industry"
+          ]
         }
       ]
     },
-    { "id": "teaching", "title": "Teaching & mentoring", "type": "entries", "items": [] },
-    { "id": "service", "title": "Service", "type": "entries", "items": [] },
-    { "id": "media", "title": "Media coverage", "type": "media" }
+    {
+      "id": "service",
+      "title": "Service",
+      "type": "entries",
+      "items": []
+    },
+    {
+      "id": "skills",
+      "title": "Skills",
+      "type": "list",
+      "items": [
+        "Regenerative & no-till practices",
+        "Cover cropping",
+        "Precision agriculture & GIS",
+        "Remote sensing / satellite imagery",
+        "AI/ML for agriculture",
+        "Software development",
+        "Direct-market & agritourism business management",
+        "Small-business finance"
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Media coverage",
+      "type": "media"
+    }
   ]
 }

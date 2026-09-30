@@ -92,5 +92,9 @@ Section `type`s and their item shape:
 | `media`        | no items — pulls from `_data/media.json` automatically               |
 
 Only `title` (entries) / `authors`, `year`, `title` (publications) are needed;
-everything else is optional. `details` lines may contain inline HTML. The page
+everything else is optional.
+
+**Plain text vs. HTML:** only `details` lines and publication `authors` are
+rendered as HTML (so `<em>` works there). Every other field is escaped, so
+write a literal `&` — not `&amp;` — or it will show up on the page as `&amp;`. The page
 has print styles, so "Print / save as PDF" in the browser yields a clean PDF.
