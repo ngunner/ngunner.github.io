@@ -180,7 +180,7 @@
           "title": "Presentation to the NASA agricultural listening tour",
           "org": "Cornell Lake Erie Research & Extension Laboratory (CLEREL)",
           "location": "Portland, NY",
-          "when": ""
+          "when": "Summer 2024"
         }
       ]
     },
@@ -237,7 +237,10 @@
           "title": "Guest lecture, undergraduate viticulture course",
           "org": "Cornell University",
           "location": "Ithaca, NY",
-          "when": "Fall 2025"
+          "when": "Fall 2025",
+          "details": [
+            "Hosted by Ria D'Aversa, Lecturer in Viticulture"
+          ]
         }
       ]
     },
