@@ -101,7 +101,7 @@
           "when": "Jan 2015 – present",
           "details": [
             "Founded a geospatial software company that grew from web development and multimedia production into cloud-based GIS and data-science tools for agriculture",
-            "Serve government, non-profit, and business clients; maintain a portfolio of mapping products including trailhub.org and winegeographer.com",
+            "Serve government, non-profit, and business clients; maintain a portfolio of mapping products including trailhub.org",
             "Co-owned 50/50 with Caitlin Gunner; the company houses the Gunner Gardens farm enterprise"
           ]
         },
@@ -109,7 +109,7 @@
           "title": "Freelance video producer",
           "org": "Roger Tory Peterson Institute of Natural History",
           "location": "Jamestown, NY",
-          "when": "2015 – present"
+          "when": "2015 – 2019"
         },
         {
           "title": "New Media Manager",
@@ -288,14 +288,6 @@
           "when": "",
           "details": [
             "Trail communication and mapping platform for trail-system operators"
-          ]
-        },
-        {
-          "title": "Wine Geographer",
-          "url": "https://winegeographer.com",
-          "when": "",
-          "details": [
-            "Mapping product for the wine industry"
           ]
         }
       ]
