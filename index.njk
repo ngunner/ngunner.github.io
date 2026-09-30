@@ -5,6 +5,12 @@ title: Home
 
 <p>{{ site.bio | safe }}</p>
 
+{% if site.links %}
+<ul class="site-links">
+  {% for l in site.links %}<li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.name }}</a></li>{% endfor %}
+</ul>
+{% endif %}
+
 <h2>Posts</h2>
 <ul class="post-list">
   {% for post in collections.posts %}
